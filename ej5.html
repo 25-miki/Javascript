@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+</head>
+<body>
+    
+</body>
+
+
+<script>
+
+let a = Number(prompt('Introduce A', 0));
+let b = Number(prompt('Introduce B', 0));
+let c = Number(prompt('Introduce C', 0));
+
+let disc = b**2 - 4*(a * c);
+
+if (disc >= 0) {
+    let resultadopos = -b + Math.sqrt(disc)/ 2 * a;
+    let resultadoneg = -b - Math.sqrt(disc)/ 2 * a
+
+    alert (`Los resultados son ${resultadopos} y ${resultadoneg}`);
+}
+else {
+    alert('Número imaginario');
+}
+
+    
+    </script>
+</html>

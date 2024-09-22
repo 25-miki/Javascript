@@ -26,10 +26,10 @@ function jugar() {
     while (jugandoJugador1) {
             let carta = dameCarta();
             jugador1 += carta;
-            console.log(`Jugador 1 sacó un ${carta}. Total: ${jugador1}`);
+            alert(`Jugador 1 sacó un ${carta}. Total: ${jugador1}`);
             
             if (jugador1 > 21) {
-                console.log("Jugador 1 se pasó de 21. Jugador 2 gana.");
+                alert("Jugador 1 se pasó de 21. Jugador 2 gana.");
                 return;
             }
             
@@ -42,10 +42,10 @@ function jugar() {
     while (jugandoJugador2) {
             let carta = generarCarta();
             jugador2 += carta;
-            console.log(`Jugador 2 sacó un ${carta}. Total: ${jugador2}`);
+            alert(`Jugador 2 sacó un ${carta}. Total: ${jugador2}`);
             
             if (jugador2 > 21) {
-                console.log("Jugador 2 se pasó de 21. Jugador 1 gana.");
+                alert("Jugador 2 se pasó de 21. Jugador 1 gana.");
                 return;
             }
             
@@ -57,11 +57,11 @@ function jugar() {
     }
 
     if (jugador1 > jugador2) {
-            console.log(`Jugador 1 gana con ${jugador1} puntos.`);
+            alert(`Jugador 1 gana con ${jugador1} puntos.`);
         } else if (jugador2 > jugador1) {
-            console.log(`Jugador 2 gana con ${jugador2} puntos.`);
+            alert(`Jugador 2 gana con ${jugador2} puntos.`);
         } else {
-            console.log(`Empate. Ambos jugadores tienen ${jugador1} puntos.`);
+            alert(`Empate. Ambos jugadores tienen ${jugador1} puntos.`);
         }
 }
 

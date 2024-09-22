@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+</head>
+<body>
+    
+</body>
+
+
+<script>
+
+function dameCarta(){
+    return Math.floor(Math.random() * 12) + 1;
+}
+
+function jugar() {
+    let jugador1 = 0;
+    let jugador2 = 0;
+    let jugandoJugador1 = true;
+    let jugandoJugador2 = true;
+
+
+    while (jugandoJugador1) {
+            let carta = dameCarta();
+            jugador1 += carta;
+            console.log(`Jugador 1 sacó un ${carta}. Total: ${jugador1}`);
+            
+            if (jugador1 > 21) {
+                console.log("Jugador 1 se pasó de 21. Jugador 2 gana.");
+                return;
+            }
+            
+            let continuar = prompt("Jugador 1, ¿quieres seguir robando cartas? (si/no)");
+            if (continuar.toLowerCase() !== "si") {
+                jugandoJugador1 = false;
+            }
+    }
+
+    while (jugandoJugador2) {
+            let carta = generarCarta();
+            jugador2 += carta;
+            console.log(`Jugador 2 sacó un ${carta}. Total: ${jugador2}`);
+            
+            if (jugador2 > 21) {
+                console.log("Jugador 2 se pasó de 21. Jugador 1 gana.");
+                return;
+            }
+            
+            let continuar = prompt("Jugador 2, ¿quieres seguir robando cartas? (si/no)");
+            if (continuar.toLowerCase() !== "si") {
+                jugandoJugador2 = false;
+            }
+
+    }
+
+    if (jugador1 > jugador2) {
+            console.log(`Jugador 1 gana con ${jugador1} puntos.`);
+        } else if (jugador2 > jugador1) {
+            console.log(`Jugador 2 gana con ${jugador2} puntos.`);
+        } else {
+            console.log(`Empate. Ambos jugadores tienen ${jugador1} puntos.`);
+        }
+}
+
+jugar();
+
+    
+    </script>
+</html>

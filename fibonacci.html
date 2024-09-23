@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+    function serieFibo(n){
+
+
+        if(n==1){
+            return 0;
+        } else if(n==2){
+            return 1;
+        } else {
+            return serieFibo(n - 1) + serieFibo(n-2);
+        }
+    }
+
+    console.log(serieFibo(20));
+
+
+</script>
+</html>

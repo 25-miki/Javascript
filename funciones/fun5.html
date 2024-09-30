@@ -8,7 +8,27 @@
 <body>
 
 <script>
-    
+    function ordena(vector, ordenacion = true) {
+        //copia del vector
+    let vectorCopia = [...vector];
+
+    if (ordenacion) {
+        return vectorCopia.sort((a, b) => b - a);
+    } else {
+        return vectorCopia.sort((a, b) => a - b);
+    }
+}
+
+let numeros = [5, 3, 8, 1, 9, 2];
+
+let ordenadoDesc = ordena(numeros);
+console.log("Mayor a menor:", ordenadoDesc); 
+
+let ordenadoAsc = ordena(numeros, false);
+console.log("Menor a mayor:", ordenadoAsc); 
+
+console.log("Riginal:", numeros);
+
 </script>
 
 </body>

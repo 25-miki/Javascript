@@ -9,5 +9,18 @@
     
 </body>
 <script>
+    function pvp(precioBase, tipoIva = 21) {
+    return precioBase * (1 + tipoIva / 100);
+}
+
+let precioSinIva = 100; 
+
+let pvpConIva = pvp(precioSinIva);
+console.log(`El PVP con el IVA por defecto es: ${pvpConIva.toFixed(2)}€`);
+
+let pvpConIvaReducido = pvp(precioSinIva, 10);
+console.log(`El PVP con el IVA reducido es: ${pvpConIvaReducido.toFixed(2)}€`);
+
+
 </script>
 </html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+
+}
+
+.contenedor, h1 {
+    padding: 20px;
+    margin: 0px;
+    max-width: 100%;
+}
+
+img {
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    .contenedor {
+        column-count: 1;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .contenedor {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1399px) {
+    .contenedor {
+        column-count: 3;
+    }
+}
+
+@media (min-width: 1400px) {
+    .contenedor {
+        max-width: 1400px;
+        column-count: 4;
+    }
+}
+
+@media print {
+    .contenedor {
+        column-count: 2;
+    }
+}
+
+</style>
+<body>
+    <h1>Ejercicio CSS - Media queries</h1>
+    <div  class="contenedor">
+        <p>
+
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque rhoncus ante eu feugiat vulputate. Nullam convallis facilisis enim eget interdum. Mauris tincidunt ex neque, nec dignissim ante egestas id. Maecenas et leo vestibulum, fringilla lorem eu, vulputate ante. Fusce posuere congue vehicula. Donec interdum dolor massa, sit amet euismod lorem vestibulum vel. Vivamus gravida orci ac dui ultrices pulvinar. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis sit amet lorem vestibulum orci volutpat faucibus. Aliquam eros orci, suscipit quis cursus sed, vestibulum sit amet felis.
+            
+            Vivamus id gravida dolor. Nullam vulputate aliquam tellus eget pulvinar. Proin in lorem enim. Phasellus blandit eget dolor et semper. Nulla vel scelerisque massa. Suspendisse sagittis ultricies orci, et mollis odio hendrerit sit amet. Etiam eget leo nunc. Curabitur vestibulum auctor urna, sit amet tempus turpis viverra at.
+        </p>
+        <img src="alfonso-cenname-5R2JmImJa30-unsplash.jpg"></img>
+        <p>
+            Maecenas nec vestibulum nunc. Donec ultrices ac nulla eget molestie. Mauris suscipit, sem vel auctor faucibus, massa mi volutpat enim, quis mollis tellus augue a eros. Curabitur faucibus aliquet sem, fringilla commodo metus. Duis hendrerit tellus sit amet maximus ullamcorper. Cras dignissim convallis justo, non mollis nisl elementum eget. Ut pretium justo in pharetra pulvinar. Vivamus congue, tortor quis aliquam volutpat, sapien justo bibendum felis, a efficitur enim ipsum eget turpis. In nisi sapien, varius a mauris quis, placerat eleifend nisl. Aenean sodales et nulla ac congue. In arcu eros, venenatis non nunc sit amet, dictum placerat lorem.
+            
+            Suspendisse in feugiat diam. Duis tincidunt, sem vel porta malesuada, ipsum nulla mollis dolor, id dapibus tellus nunc vel nunc. Maecenas sodales molestie arcu, sed porttitor magna egestas vitae. Nulla id placerat sem, sed ullamcorper libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec sollicitudin volutpat nunc eget tempor. Aliquam volutpat pellentesque neque imperdiet fringilla. Nulla fringilla ex est, sed scelerisque leo commodo eget. Suspendisse quis lacus dictum, dignissim tortor sed, venenatis purus. Fusce non interdum est, fringilla porta mi. Morbi dictum auctor venenatis. Fusce sit amet cursus dui, eget vehicula ipsum. Aliquam erat volutpat.
+        </p>
+        <img src="tiago-faifa-NXDr9mDZ3cw-unsplash.jpg"></img>
+        <p>
+            Curabitur fermentum mauris vel nulla convallis pretium. Phasellus pellentesque ante lectus, in posuere orci elementum non. Phasellus et tortor tempus, consectetur ex ut, semper sem. Ut quis nibh varius, posuere lacus sed, porttitor mi. Proin elementum nunc at lectus interdum volutpat ac non turpis. Integer faucibus efficitur justo in feugiat. Vestibulum sollicitudin auctor purus, a laoreet mauris euismod vel. Cras viverra turpis ac est venenatis elementum. Vestibulum magna justo, auctor sed metus id, sollicitudin rutrum lectus. Integer odio sapien, eleifend a turpis a, eleifend sodales arcu. Donec varius mi sem, eget facilisis ligula efficitur a. Sed eu quam nisl.
+            
+            Phasellus sit amet magna nec nisl consequat tempus. Duis ultrices, leo vel fermentum tempus, diam magna semper nunc, eu efficitur nibh urna in mi. Fusce pharetra suscipit enim, non dignissim orci molestie sit amet. Mauris non ante nisi. Donec viverra dolor vitae ex placerat, in vestibulum ante iaculis. Fusce ac mauris condimentum, pellentesque lectus eu, eleifend urna. Sed vitae ante et nisi iaculis interdum in ullamcorper dolor. Mauris porta arcu orci, condimentum faucibus tellus porta ac.
+        </p>
+        <p>
+            Vestibulum a suscipit lorem. Etiam a lacus velit. Vestibulum at sem hendrerit enim molestie sodales eget et eros. Proin quam odio, ullamcorper vel lorem auctor, condimentum sodales tortor. Nunc id lorem elit. Maecenas a nisi felis. Vestibulum nulla mi, fringilla at tincidunt maximus, aliquet in enim. Pellentesque viverra sapien quis erat mollis, at porta sapien scelerisque. Aenean sed diam aliquam, congue massa a, venenatis enim. Aliquam elementum ultricies scelerisque. Integer non justo pellentesque nibh pharetra malesuada. Mauris eu commodo lacus, vel gravida tellus. Proin interdum semper sodales.
+        </p>
+        
+        <p>  
+            Ut non eleifend risus, a tempus ipsum. Aenean vel facilisis justo. Nullam risus purus, bibendum nec diam sed, posuere mollis enim. Nam pulvinar iaculis risus et porttitor. Donec eget sapien tristique, blandit ex et, tristique lorem. Phasellus consequat risus eget dui sollicitudin, vitae vulputate risus mollis. Maecenas hendrerit neque eu ex iaculis vestibulum.
+            
+            Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Ut dapibus velit vitae lectus pretium facilisis. Suspendisse sollicitudin malesuada magna id vestibulum. Cras ornare purus non erat cursus semper. Nunc pretium eros eu libero luctus feugiat. Morbi ut neque magna. Pellentesque semper molestie enim, et laoreet tortor vulputate sit amet. Cras ornare feugiat aliquet. Ut efficitur enim libero, a vulputate dolor interdum id. Integer nec tellus sem. Nulla aliquet vestibulum nulla, et tristique diam efficitur ac. Sed vestibulum quam turpis, eu consequat erat suscipit vel. Morbi aliquam rhoncus tempor.
+        </p>
+        <img src="rachael-gorjestani-XlA2994Txhw-unsplash.jpg"></img>
+        <p>  
+            Maecenas id aliquet felis. Quisque id magna id eros commodo imperdiet volutpat eu augue. Etiam quis congue orci. Ut et vestibulum mauris. Integer ultricies dapibus pretium. Nulla facilisi. Sed scelerisque molestie velit eu imperdiet. Curabitur a mollis felis, ac tempus ipsum. Morbi elit dui, aliquet id maximus eget, feugiat non ipsum. Sed hendrerit varius erat at aliquam. Nam fringilla nunc pellentesque, laoreet augue sit amet, euismod tortor.
+        </p>
+            Nulla elementum volutpat maximus. Nulla vitae pretium augue. Etiam ut lacinia tellus, vitae suscipit nisi. Vestibulum sed quam finibus, facilisis elit eget, porta sapien. Duis ac pretium eros. Maecenas ultrices dui at urna pretium, at auctor elit condimentum. Quisque ut metus et quam iaculis feugiat at congue erat. Phasellus et nisi eu lorem efficitur auctor sed a mauris. Quisque mauris leo, pretium id convallis bibendum, vehicula sit amet sem. Suspendisse fermentum porta massa dictum feugiat. Sed vulputate pellentesque vehicula. Quisque porta feugiat pretium. Sed sodales ipsum sit amet orci euismod, ac auctor mi dapibus.
+            
+            Cras tempus ipsum ac diam feugiat, eu condimentum quam tincidunt. Vivamus feugiat turpis metus, a maximus lectus convallis ut. Cras a purus urna. Nam sit amet suscipit quam. Nullam euismod justo a quam sodales rutrum. Duis posuere sollicitudin lectus eget fermentum. Vivamus eget maximus magna. Mauris urna felis, consequat at tortor sed, volutpat porta mauris. Cras sit amet turpis sit amet ante convallis sodales. Aliquam vitae dictum orci. Fusce porttitor ut tortor quis fermentum. Vivamus placerat venenatis interdum. Maecenas sit amet enim sit amet velit pellentesque sollicitudin. Nullam non enim convallis, vulputate justo quis, suscipit turpis. Curabitur. </p>
+    </div>
+</body>
+</html>

@@ -3,12 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 17</title>
+    <title>Ejercicio 17 - shuffle</title>
 </head>
 <body>
 
 <script>
 
+var array = [1, 2, 3, 4, 5, 6, 7];
+
+function shuffle(array) {
+    let l = array.length;
+
+    for (let i = 0; i < l; i++) {
+
+        let r = Math.floor(Math.random() * l);
+
+        let temp = array[i];
+        array[i] = array[r];
+        array[r] = temp;
+    }
+
+    console.log(array);
+}
+
+shuffle(array);
 
 
 </script>

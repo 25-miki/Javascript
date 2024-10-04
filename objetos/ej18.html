@@ -3,12 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>ej 18 - search</title>
 </head>
 <body>
     
 </body>
 <script>
-    
+function binary_Search(array, target) {
+    let left = 0;
+    let right = array.length - 1;
+
+    while (left <= right) {
+        let mid = Math.floor((left + right) / 2);
+
+        if (array[mid] === target) {
+            return mid;  
+        } else if (array[mid] < target) {
+            left = mid + 1; 
+        } else {
+            right = mid - 1;  
+        }
+    }
+
+    return -1;  
+}
+
+
+var items = [1, 2, 3, 4, 5, 7, 8, 9];
+
+
+console.log(binary_Search(items, 1)); // 0
+console.log(binary_Search(items, 5)); // 4
+console.log(binary_Search(items, 7)); // 5
+console.log(binary_Search(items, 10)); // -1 (not found)
+
 </script>
 </html>

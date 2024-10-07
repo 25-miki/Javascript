@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea style="width: 300px; height: 300px;" name="texto" id="texto"></textarea>
+    <button id="boton"  onclick="filtrar()">Buscar</button>
+    <textarea style="width: 300px; height: 300px;" name="" id="resultado"></textarea>
+</body>
+</html>
+<script>
+    function filtrar() {
+        var texto = document.getElementById("texto").value;
+//        var exp = /<a\b[^>]*>(.*?)<\/a>/gi;
+          const rest = /<a[^>]*href="([^">]*)"[^>]*>/gi; 
+/*        var coincidencia = texto.match(rest); 
+        var coincidencias = [];
+        if (coincidencia) {
+                coincidencia.forEach(function(enlace) {
+                    coincidencias.push(coincidencia); 
+                });
+
+                document.getElementById("resultado").value = coincidencias.join("\n");
+
+            } else {
+                document.getElementById("resultado").value = "No hay coincidencias";
+            }
+*/
+while(resul = rest.exec(texto)){
+    console.log(resul[1]);
+} 
+        }
+
+</script>

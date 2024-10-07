@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hanoi</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function torresHanoi(n, origen, destino, auxiliar) {
+  if (n === 1) {
+    console.log(`Mover disco 1 de ${origen} a ${destino}`);
+    return;
+  }
+
+  torresHanoi(n - 1, origen, auxiliar, destino);
+
+  console.log(`Mover disco ${n} de ${origen} a ${destino}`);
+
+  torresHanoi(n - 1, auxiliar, destino, origen);
+}
+
+let n = 3; 
+torresHanoi(n, 'A', 'C', 'B'); 
+
+</script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ej28</title>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    function longestCommonStartingSubstring(strings) {
+  if (strings.length === 0) return '';
+
+  let prefix = strings[0];
+
+  for (let i = 1; i < strings.length; i++) {
+    let j = 0;
+    while (j < prefix.length && j < strings[i].length && prefix[j] === strings[i][j]) {
+      j++;
+    }
+    prefix = prefix.substring(0, j);
+    if (prefix === '') break;
+  }
+
+  return prefix;
+}
+
+console.log(longestCommonStartingSubstring(['go', 'google']));
+
+</script>

@@ -45,6 +45,18 @@
     .card p {
         color: #666;
         font-size: 14px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3; 
+        overflow: hidden;
+    }
+
+    .cardfull {
+        color: #666;
+        font-size: 14px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
     .card button {
         padding: 10px 15px;
@@ -96,6 +108,12 @@
 
                 const button = document.createElement("button");
                 button.textContent = "Expandir receta";
+                button.onclick = function(){
+                    const cardFull = this.closest(".card");
+                    if (cardFull) {
+                        cardFull.classList.toggle("cardfull"); 
+                    }
+                }
                 card.appendChild(button);
 
                 recetasContainer.appendChild(card);

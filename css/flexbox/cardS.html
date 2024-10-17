@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjetas Horizontales</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+   
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Espacio entre las tarjetas */
+}
+
+.card {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 30%; 
+    display: flex;
+    flex-direction: column;
+}
+
+.card-header {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    height: 40px;
+    line-height: 40px; /* Centra verticalmente el texto */
+    font-weight: bold;
+}
+
+.card-body {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.card-footer {
+    background-color: grey;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    height: 30px;
+    line-height: 30px; 
+}
+
+</style>
+
+<body>
+
+    <div class="container">
+        <div class="card">
+            <div class="card-header">tarjeta izquierda</div>
+            <div class="card-body">Contenido del cuerpo <br> Contenido del cuerpo <br> Contenido el cuerpo</div>
+            <div class="card-footer">Pie de la tarjeta</div>
+        </div>
+        <div class="card">
+            <div class="card-header">Tarjeta central</div>
+            <div class="card-body">Contenido del cuerpo</div>
+            <div class="card-footer">Pie de la tarjeta</div>
+        </div>
+        <div class="card">
+            <div class="card-header">Tarjeta derecha</div>
+            <div class="card-body">Contenido del cuerpo</div>
+            <div class="card-footer">Pie de la tarjeta</div>
+        </div>
+    </div>
+
+</body>
+</html>

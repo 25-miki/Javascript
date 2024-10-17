@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Layout de dos columnas con filas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<style>
+body {
+  padding: 20px;
+  background-color: #0e7c74;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  height: 30vh;
+
+}
+
+.left-column, .right-column {
+  padding: 24px;
+  background-color: white;
+}
+
+.left-column {
+  flex: 2; 
+}
+
+.right-column {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid lightgray;
+}
+
+</style>
+<body>
+  <div class="container">
+    <div class="left-column">
+      Columna Izquierda
+    </div>
+    <div class="right-column">
+      <div class="row">Fila 1</div>
+      <div class="row">Fila 2</div>
+    </div>
+  </div>
+</body>
+</html>

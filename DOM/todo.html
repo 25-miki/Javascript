@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do</title>
+</head>
+
+<style>
+
+</style>
+
+<body>
+
+    <form id="todoForm">
+        <label for="tarea">Tarea:</label><br>
+        <input type="text" id="tarea" name="tarea"><br>
+        <label for="tiempo">Tiempo:</label><br>
+        <input type="text" id="tiempo" name="tiempo"><br>
+        <label for="deadline">Deadline:</label><br>
+        <input type="date" id="deadline" name="deadline"><br>
+        <label for="alta">Alta:</label><br>
+        <input type="date" id="alta" name="alta"><br>
+        <label for="estado">Estado:</label><br>
+        <input type="text" id="estado" name="estado"><br>
+        <label for="desc">Descripción:</label><br>
+        <input type="text" id="desc" name="desc"><br>
+        <br>
+        <input type="submit" value="Submit">
+    </form> 
+
+    <table id="lista" border="1">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nombre</th>
+                <th>Tiempo</th>
+                <th>Deadline</th>
+                <th>Alta</th>
+                <th>Estado</th>
+                <th>Descripción</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    
+    <script>
+
+        let count = 0;
+
+        document.getElementById('todoForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            count++;
+          
+            const nombre = document.getElementById('tarea').value;
+            const tiempo = document.getElementById('tiempo').value;
+            const deadline = document.getElementById('deadline').value;
+            const alta = document.getElementById('alta').value;
+            const estado = document.getElementById('estado').value;
+            const desc = document.getElementById('desc').value;
+
+            const lista = document.getElementById('lista');
+            const fila = document.createElement("tr");
+            lista.appendChild(fila);
+
+            fila.innerHTML = `
+                <td>${count}</td>
+                <td>${nombre}</td>
+                <td>${tiempo}</td>
+                <td>${deadline}</td>
+                <td>${alta}</td>
+                <td>${estado}</td>
+                <td>${desc}</td>
+                <td>
+                    <button class="eliminar">Eliminar</button>
+                    <button class="modificar">Modificar</button>
+                    <button class="cambiar">Cambiar estado</button>
+                </td>
+            `;
+
+            lista.appendChild(fila);
+
+            fila.querySelector('.eliminar').addEventListener('click', function() {
+                this.closest('tr').remove();
+            });
+
+            fila.querySelector('.modificar').addEventListener('click', function() {
+                
+            });
+
+            document.getElementById('todoForm').reset();
+        });
+
+    </script>
+
+</body>
+</html>

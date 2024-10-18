@@ -42,7 +42,7 @@
         margin: 15px 0 10px;
         color: #333;
     }
-    .card p {
+    .cardp {
         color: #666;
         font-size: 14px;
         display: -webkit-box;
@@ -98,20 +98,24 @@
                 title.textContent = receta.name;
                 card.appendChild(title);
 
-                const serv = document.createElement("p");
+                const serv = document.createElement("h5");
                 serv.textContent = "Raciones:  " + receta.servings;
                 card.appendChild(serv);
 
                 const description = document.createElement("p");
                 description.textContent = receta.description;
+                description.className = "cardp";
+
                 card.appendChild(description);
 
                 const button = document.createElement("button");
                 button.textContent = "Expandir receta";
                 button.onclick = function(){
-                    const cardFull = this.closest(".card");
-                    if (cardFull) {
-                        cardFull.classList.toggle("cardfull"); 
+                    const cardFull = this.closest(".card"); 
+                    const cardP = cardFull.querySelector("p"); 
+                    if (cardP) {
+                        cardP.classList.toggle("cardfull");
+                        cardP.classList.toggle("cardp");
                     }
                 }
                 card.appendChild(button);

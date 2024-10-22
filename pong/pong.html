@@ -11,6 +11,7 @@
         body {
             margin: 0;
             padding: 0;
+            z-index: 0;
         }
         #score {
             position: absolute;
@@ -18,15 +19,32 @@
             font-weight: 400;
             font-style: normal;
             top: 10px;
-            left: 10px;
+            left: 20vw;
             color: white;
             font-size: 24px;
             z-index: 1;
         }
+
+        .stop {
+            height: 2rem;
+            position: absolute;
+            font-family: "Press Start 2P", system-ui;
+            font-weight: 400;
+            font-style: normal;
+            top: 10px;
+            right: 10px;
+            color: black;
+            background-color: white;
+            font-size: 14px;
+            z-index: 1;
+        }
+
     </style>
 </head>
 <body>
-    <div id="score">Player One: 0  Player Two: 0</div>
+    <div id="score">Player One: 0 .......... Player Two: 0</div>
+    <button class="stop" id="stop">Stop</button>
+
     <script type="module">
         import * as THREE from './three.module.min.js';
 
@@ -46,7 +64,7 @@
         document.body.appendChild(renderer.domElement);
         
         // Crear la geometría de la esfera
-        const geometry = new THREE.SphereGeometry(1, 20, 20);
+        const geometry = new THREE.SphereGeometry(1, 10, 10);
         const material = new THREE.MeshBasicMaterial({ color: 0xaaaaaa, wireframe: true });
         const sphere = new THREE.Mesh(geometry, material);
         scene.add(sphere);
@@ -63,17 +81,10 @@
         scene.add(paddle);
         scene.add(paddle2);
 
-        function acelerar() {
-            sphereSpeed += 0.2;
-            console.log(sphereSpeed);
-        }
-
-        const accelerationInterval = setInterval(acelerar, 10000);
-        
 
         // Variables para almacenar la velocidad de movimiento de la esfera
         let moveSpeed = 0.5; // Velocidad de movimiento
-        let sphereSpeed = 0.3;
+        let sphereSpeed = 0.1;
 
         let angle = 0; // Ángulo de rebote en grados
         let directionX = 1; // Dirección inicial horizontal (1: derecha)
@@ -83,16 +94,28 @@
         let leftBounceCount = 0;
         let rightBounceCount = 0;
 
+        let animationId; // Guardar el ID de la animación
+
         // Función para detectar colisiones
         function checkCollision() {
             const sphereBoundingBox = new THREE.Box3().setFromObject(sphere);
             const paddleBoundingBox = new THREE.Box3().setFromObject(paddle);
             const paddle2BoundingBox = new THREE.Box3().setFromObject(paddle2);
 
-            if (sphereBoundingBox.intersectsBox(paddleBoundingBox) || sphereBoundingBox.intersectsBox(paddle2BoundingBox)) {
+            if (sphereBoundingBox.intersectsBox(paddleBoundingBox)) {
                 // Invertir la dirección de la esfera al chocar con un paddle
                 directionX *= -1;
-                directionY *= -1;
+                
+                angle = (sphere.position.y - paddle.position.y ) * 0.1;
+                directionY = angle;
+            }
+
+            if (sphereBoundingBox.intersectsBox(paddle2BoundingBox)) {
+                // Invertir la dirección de la esfera al chocar con un paddle
+                directionX *= -1;
+                
+                angle = (sphere.position.y - paddle2.position.y ) * 0.1;
+                directionY = angle;
             }
 
             // Limitar el movimiento de la esfera
@@ -101,9 +124,7 @@
                 rightBounceCount++; // Incrementar el contador de rebotes a la derecha
                 updateScoreDisplay(); // Actualizar la visualización del puntaje
                 reset();
-                sphereSpeed = 0.1;
-                clearInterval(accelerationInterval);
-
+                angle = 0;
             }
 
             if (sphere.position.x < -aspect * 10) {
@@ -111,9 +132,7 @@
                 leftBounceCount++; // Incrementar el contador de rebotes a la izquierda
                 updateScoreDisplay(); // Actualizar la visualización del puntaje
                 reset();
-                sphereSpeed = 0.3;
-                clearInterval(accelerationInterval);
-
+                angle = 0;
             }
 
             if (sphere.position.y > 10 || sphere.position.y < -10) {
@@ -124,7 +143,7 @@
         // Función para actualizar la visualización del puntaje
         function updateScoreDisplay() {
             const scoreElement = document.getElementById('score');
-            scoreElement.textContent = `Player One: ${rightBounceCount}, Player Two: ${leftBounceCount}`;
+            scoreElement.textContent = `Player One: ${rightBounceCount},           Player Two: ${leftBounceCount}`;
         }
 
         // Añadir un listener para detectar las teclas presionadas
@@ -142,6 +161,18 @@
             }
         }
 
+        document.addEventListener('keydown', function(e) {
+
+            // w key
+            if (e.which === 87) {
+                paddle2.position.y += moveSpeed;
+            }
+            // a key
+            else if (e.which === 83) {
+                paddle2.position.y -= moveSpeed;
+            }
+        });
+
         // Añadir un listener para el evento de la rueda del ratón
         window.addEventListener('wheel', handleWheel);
 
@@ -151,14 +182,19 @@
             paddle2.position.y += event.deltaY * 0.01; // Ajustar la velocidad según el desplazamiento de la rueda
         }
 
-
         // Función de animación
         function animate() {
-            requestAnimationFrame(animate);
+            animationId = requestAnimationFrame(animate);
+
+            // Limitar el movimiento de las palas
+            if(paddle.position.y > 7) paddle.position.y = 7;
+            if(paddle.position.y < -7) paddle.position.y = -7;
+            if(paddle2.position.y > 7) paddle2.position.y = 7;
+            if(paddle2.position.y < -7) paddle2.position.y = -7;
             
             // Mover la esfera
             sphere.position.x += sphereSpeed * directionX;
-            sphere.position.y += moveSpeed * directionY * (directionX < 0 ? -1 : 1); // Movimiento vertical
+            sphere.position.y += moveSpeed * directionY * (directionX < 0 ? -1 : 1);
 
             // Verificar colisiones
             checkCollision();
@@ -170,8 +206,28 @@
         function reset(){
             sphere.position.x = 0;
             sphere.position.y = 0;
-
         }
+
+        
+
+        const botonStop = document.getElementById("stop");
+        let onoff = 0;
+
+        // Función para parar la animación
+        function parar() {
+            if (onoff === 0) {
+                cancelAnimationFrame(animationId); // Parar la animación
+                onoff = 1;
+                botonStop.textContent = "Start"; // Cambiar el texto del botón
+            } else {
+                requestAnimationFrame(animate); // Reanudar la animación
+                onoff = 0;
+                botonStop.textContent = "Stop"; // Cambiar el texto del botón
+            }
+        }
+
+        botonStop.addEventListener("click", parar);
+        
 
         // Iniciar la animación
         animate();

@@ -25,10 +25,25 @@
             z-index: 1;
         }
 
+        .stop {
+            height: 2rem;
+            position: absolute;
+            font-family: "Press Start 2P", system-ui;
+            font-weight: 400;
+            font-style: normal;
+            top: 10px;
+            right: 10px;
+            color: black;
+            background-color: white;
+            font-size: 14px;
+            z-index: 1;
+        }
+
     </style>
 </head>
 <body>
     <div id="score">Player One: 0 .......... Player Two: 0</div>
+    <button class="stop" id="stop">Stop</button>
 
     <script type="module">
         import * as THREE from './three.module.min.js';
@@ -79,6 +94,8 @@
         let leftBounceCount = 0;
         let rightBounceCount = 0;
 
+        let animationId; // Guardar el ID de la animación
+
         // Función para detectar colisiones
         function checkCollision() {
             const sphereBoundingBox = new THREE.Box3().setFromObject(sphere);
@@ -91,19 +108,14 @@
                 
                 angle = (sphere.position.y - paddle.position.y ) * 0.1;
                 directionY = angle;
-
-                
-
             }
 
             if (sphereBoundingBox.intersectsBox(paddle2BoundingBox)) {
                 // Invertir la dirección de la esfera al chocar con un paddle
                 directionX *= -1;
                 
-                angle = (sphere.position.y - paddle.position.y ) * 0.1;
+                angle = (sphere.position.y - paddle2.position.y ) * 0.1;
                 directionY = angle;
-
-               
             }
 
             // Limitar el movimiento de la esfera
@@ -126,8 +138,6 @@
             if (sphere.position.y > 10 || sphere.position.y < -10) {
                 directionY *= -1; // Rebote en los límites superior e inferior
             }
-
-            
         }
 
         // Función para actualizar la visualización del puntaje
@@ -172,31 +182,19 @@
             paddle2.position.y += event.deltaY * 0.01; // Ajustar la velocidad según el desplazamiento de la rueda
         }
 
-
         // Función de animación
         function animate() {
-            requestAnimationFrame(animate);
+            animationId = requestAnimationFrame(animate);
 
-        if(paddle.position.y > 7){
-            paddle.position.y = 7;
-        }
-
-        if(paddle.position.y < -7){
-            paddle.position.y = -7;
-        }
-
-        if(paddle2.position.y > 7){
-            paddle2.position.y = 7;
-        }
-
-        if(paddle2.position.y < -7){
-            paddle2.position.y = -7;
-        }
-          
-        
+            // Limitar el movimiento de las palas
+            if(paddle.position.y > 7) paddle.position.y = 7;
+            if(paddle.position.y < -7) paddle.position.y = -7;
+            if(paddle2.position.y > 7) paddle2.position.y = 7;
+            if(paddle2.position.y < -7) paddle2.position.y = -7;
+            
             // Mover la esfera
             sphere.position.x += sphereSpeed * directionX;
-            sphere.position.y += moveSpeed * directionY * (directionX < 0 ? -1 : 1); // Movimiento vertical
+            sphere.position.y += moveSpeed * directionY * (directionX < 0 ? -1 : 1);
 
             // Verificar colisiones
             checkCollision();
@@ -208,8 +206,28 @@
         function reset(){
             sphere.position.x = 0;
             sphere.position.y = 0;
-
         }
+
+        
+
+        const botonStop = document.getElementById("stop");
+        let onoff = 0;
+
+        // Función para parar la animación
+        function parar() {
+            if (onoff === 0) {
+                cancelAnimationFrame(animationId); // Parar la animación
+                onoff = 1;
+                botonStop.textContent = "Start"; // Cambiar el texto del botón
+            } else {
+                requestAnimationFrame(animate); // Reanudar la animación
+                onoff = 0;
+                botonStop.textContent = "Stop"; // Cambiar el texto del botón
+            }
+        }
+
+        botonStop.addEventListener("click", parar);
+        
 
         // Iniciar la animación
         animate();

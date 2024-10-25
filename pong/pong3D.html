@@ -13,6 +13,39 @@
             padding: 0;
             z-index: 0;
         }
+
+        .home{
+            display: block;
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2;
+            text-align: center;
+            align-content: center;
+            text-align: center;
+
+        }
+
+        .modes {
+            display: none;
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 2;
+            text-align: center;
+            align-content: center;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 74px;
+            color: white;
+            font-family: "Press Start 2P", system-ui;
+
+        }
+
         #score {
             position: absolute;
             font-family: "Press Start 2P", system-ui;
@@ -39,13 +72,69 @@
             z-index: 1;
         }
 
+        .start {
+            height: 6rem;
+            font-family: "Press Start 2P", system-ui;
+            font-weight: 400;
+            font-style: normal;
+            color: black;
+            background-color: white;
+            font-size: 44px;
+            z-index: 1;
+            margin: 10px;
+            padding: 20px;
+        }
+
+
+
     </style>
 </head>
 <body>
+    <div class="home" id="home">
+        <h1 style="margin-left: 50px;"> PONG!</h1>
+        <button class="start" id="start">START</button>
+    </div>
+    
+    <div class="modes" id="modes">
+        <h1 style="margin-left: 30px">DIFFICULTY:</h1>
+        <button class="start" id="easy">EASY</button>
+        <button class="start" id="medium">MEDIUM</button>
+        <button class="start" id="hard">HARD</button>
+    </div>
+
     <div id="score">Player One: 0 .......... Player Two: 0</div>
     <button class="stop" id="stop">Stop</button>
 
     <script type="module">
+
+    const start = document.getElementById("start");
+        const home = document.getElementById("home");
+        const modes = document.getElementById("modes");
+
+        start.addEventListener("click", function() {
+            home.style.display = "none"; 
+            modes.style.display = "block"; 
+        });
+
+        modes.addEventListener("click", function(event) {
+            if (event.target.id === "easy") {
+                sphereSpeed = 0.3; 
+                console.log("Dificultad fácil seleccionada. Velocidad:", sphereSpeed);
+            } else if (event.target.id === "medium") {
+                sphereSpeed = 0.6;
+                console.log("Dificultad media seleccionada. Velocidad:", sphereSpeed);
+            } else if (event.target.id === "hard") {
+                sphereSpeed = 0.9; 
+                console.log("Dificultad difícil seleccionada. Velocidad:", sphereSpeed);
+            }
+
+          
+            modes.style.display = "none"; 
+            
+        });
+
+
+
         import * as THREE from './three.module.min.js';
 
         // Crear la escena
@@ -70,8 +159,8 @@
         scene.add(sphere);
 
         // Crear la geometría de las palas
-        const geom = new THREE.BoxGeometry(1, 6, 1);
-        const paddleMaterial = new THREE.MeshBasicMaterial({ color: 0xaaaaaa, wireframe: false });
+        const geom = new THREE.BoxGeometry(2, 6, 1);
+        const paddleMaterial = new THREE.MeshBasicMaterial({ color: 0xaaaaaa, wireframe: true });
         const paddle = new THREE.Mesh(geom, paddleMaterial);
         const paddle2 = new THREE.Mesh(geom, paddleMaterial);
         
@@ -116,6 +205,8 @@
                 
                 angle = (sphere.position.y - paddle2.position.y ) * 0.1;
                 directionY = angle;
+
+                console.log(angle);
             }
 
             // Limitar el movimiento de la esfera

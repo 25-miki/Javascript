@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Norma Comics</title>
+</head>
+
+<style>
+    body{
+        width: 100vw;
+        margin: 0px;
+        padding: 0px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    head{
+        position: fixed;
+        top: 0px;
+    }
+
+    .envio{
+        background-color: red;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bolder;
+        padding: 8px;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    nav{
+        display: flex;
+        flex-direction: row;
+        padding: 20px;
+        height: 3rem;
+    }
+
+    .usuario{
+        margin-left: 25%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .usuario img{
+        height: 1.5rem;  
+        margin: 0px;
+    }
+
+    .usuario p{
+        font-size: 12px;  
+        margin: 5px 0px 0px 0px;
+        text-align: center;
+
+    }
+
+    .banner{
+        width: 100vw;
+        height: 20vh;
+    }
+
+    .cuerpo {
+        width: 70vw;
+        margin-left: 15vw;
+        margin-top: 5vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .separadores{
+        display: flex;
+        flex-direction: row;
+        margin: 0px;
+        width: 100%;
+    }
+
+    .separadores button{
+        background-color: red;
+        color: white;
+        font-weight: 900;
+        border: 0px;
+        font-size: 30px;
+        padding: 10px;
+        margin: 2px;
+        width: 33%;
+    }
+
+
+</style>
+<body>
+
+    <head>
+        <div class="envio">Envío GRATIS en pedidos superiores a 29€* (Sólo Península)</div>
+        <nav>
+            <img src="logo-norma-comics.webp" alt="logo"  style="width: 5%; padding: 5px; margin-left: 15%; margin-right: 10%;">
+            <input type="text" placeholder="Buscar ..."  style="border: 0px; background-color: rgb(245, 244, 244); padding: 10px; width: 30%;">
+            <button id="buscar"  style="border: 0px; background-color: rgb(245, 244, 244); padding: 10px; ">Buscar</button>
+            <div style="margin-left: 10%; display: flex;  flex-direction: row;">
+                <div class="usuario">
+                    <img src="profile.png" alt="" >
+                    <p>Usuario</p>
+                </div>
+                <div class="usuario">
+                    <img src="contact.png" alt="">
+                    <p>Contacto</p>
+                </div>
+                <div class="usuario">
+                    <img src="menu.png" alt="">
+                    <p>Menu</p>
+                </div>
+            </div>          
+        </nav>
+    </head>
+
+    <div  class="banner" id="banner">
+        <img src="webdesk_cartone_1920x200px_1__2.webp" alt="">
+    </div>
+
+    <div class="cuerpo">
+        <div class="separadores">
+            <button id="new">NOVEDADES</button>
+            <button id="next">PROXIMAMENTE</button>
+            <button id="merchan">MERCHANDISING</button>
+        </div>
+
+        <div class="comics">
+            <div class="comic">
+                <img src="clase-letal-3.webp" alt="">
+                <p>Clase letal 3</p>
+                <p>52,25€</p>
+            </div>
+            <div class="comic">
+                <img src="clase-letal-3.webp" alt="">
+                <p>Clase letal 3</p>
+                <p>52,25€</p>
+            </div>
+            <div class="comic">
+                <img src="clase-letal-3.webp" alt="">
+                <p>Clase letal 3</p>
+                <p>52,25€</p>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

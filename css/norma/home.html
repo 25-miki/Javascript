@@ -12,11 +12,20 @@
         margin: 0px;
         padding: 0px;
         font-family: Arial, Helvetica, sans-serif;
+        z-index: 0;
+    
     }
+  
+  img{
+    background-color: red;
+  }
 
-    head{
+    .header{
         position: fixed;
         top: 0px;
+        z-index: 1;
+        width: 100vw;
+        background-color: white;
     }
 
     .envio{
@@ -60,6 +69,8 @@
     .banner{
         width: 100vw;
         height: 20vh;
+        margin-top: 150px;
+      background-color: red;
     }
 
     .cuerpo {
@@ -89,13 +100,88 @@
         margin: 2px;
         width: 33%;
     }
+  .comics{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .comic{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 60vh;
+    
+  }
+  
+  .comic img{
+    width: 100%;
+    height: 100%;
+  }
+  
+  .generos{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    gap: 1rem;
+    width: 100%;
+    height: 30vh;
+  }
+  
+  .generos img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;  
+  }
+  
+  footer img{
+    width: 100vw; 
+    height: 40vh;
+    margin-top: 1rem;
+  }
+  
+  
+  .terminos{
+    display: flex;
+    flex-direction: row;
+    gap:3rem;
+    margin-left: 30%;
+  }
+  
+  .redes{
+    margin-left: 30%;
+  }
+  
+  .redes img{
+    width: 3rem; 
+    height: 3rem;
+    margin: 2rem;
+  }
+  
+  .us{
+    display: grid;
+    grid-template-columns: 2fr 2fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    gap: 1rem;
+    width: 100%;
+    height: 30vh;
+  }
+  
+   .us img{
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;  
+  }
 
 
 </style>
 <body>
 
-    <head>
+    <div class="header">
         <div class="envio">Envío GRATIS en pedidos superiores a 29€* (Sólo Península)</div>
+      
         <nav>
             <img src="logo-norma-comics.webp" alt="logo"  style="width: 5%; padding: 5px; margin-left: 15%; margin-right: 10%;">
             <input type="text" placeholder="Buscar ..."  style="border: 0px; background-color: rgb(245, 244, 244); padding: 10px; width: 30%;">
@@ -115,7 +201,7 @@
                 </div>
             </div>          
         </nav>
-    </head>
+    </div>
 
     <div  class="banner" id="banner">
         <img src="webdesk_cartone_1920x200px_1__2.webp" alt="">
@@ -144,8 +230,80 @@
                 <p>Clase letal 3</p>
                 <p>52,25€</p>
             </div>
+          <div class="comic">
+                <img src="clase-letal-3.webp" alt="">
+                <p>Clase letal 3</p>
+                <p>52,25€</p>
+           </div>
+          <div class="comic">
+                <img src="clase-letal-3.webp" alt="">
+                <p>Clase letal 3</p>
+                <p>52,25€</p>
+           </div>
+          <div class="comic">
+                <img src="clase-letal-3.webp" alt="">
+                <p>Clase letal 3</p>
+                <p>52,25€</p>
+           </div>
         </div>
+      
+       <div class="generos">
+         <img>
+         <img>
+         <img>
+         <img>
+         <img style="grid-column: 1 / 4;">
+         <img>
+       </div>
+      
+      <p>Lo más vendido</p>
+
+      <div class="comics">
+            <div class="comic">
+                <img src="clase-letal-3.webp" alt="">
+                <p>Clase letal 3</p>
+                <p>52,25€</p>
+            </div>
+            <div class="comic">
+                <img src="clase-letal-3.webp" alt="">
+                <p>Clase letal 3</p>
+                <p>52,25€</p>
+            </div>
+            <div class="comic">
+                <img src="clase-letal-3.webp" alt="">
+                <p>Clase letal 3</p>
+                <p>52,25€</p>
+            </div>
+      </div>
+      
+      <div class="us">
+         <img>
+         <img>
+         <img>
+         <img style="grid-column: 1 / 4;">
+       </div>
+      
+      
+        
+      
     </div>
+  
+    <footer>
+      <img >
+      <div class="terminos">
+        <p>Patata</p>
+        <p>Patata</p>
+        <p>Patata</p>
+        <p>Patata</p>
+        <p>Patata</p>
+      </div>
+      <div class="redes">
+        <img>
+        <img>
+        <img>
+      </div>
+
+      
     
 </body>
 </html>

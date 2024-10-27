@@ -1,0 +1,190 @@
+
+@media (max-width: 768px) {
+          
+    nav {
+        padding: 10px;
+    }
+
+    .logo{
+      width: auto;
+      padding: 5px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    .usuario {
+        margin-left: 15%;
+        
+    }
+
+    .banner {
+        display: none;
+    }
+
+    .cuerpo {
+        width: 100%;
+        margin-top: 10vh;
+        margin-left: 0px;
+    }
+
+    .separadores {
+        margin-top: 35px;
+    }
+
+    .separadores button {
+        font-size: medium;
+
+    }
+
+    .comics {
+        width: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1rem;
+        align-self: center;
+        width: 90%;
+    }
+
+    .comic {
+        width: 100%;
+        min-height: 60vh;
+        margin-bottom: 4rem;
+        padding: 0px;
+    }
+
+    .comic img {
+        width: 100%;
+        align-self: center;
+    }
+
+    .botones{
+      gap: 2rem;
+    }
+
+    
+
+    .generos {
+      width: 95%;
+      height: auto;
+      margin: 25px;
+    }
+
+    
+
+    footer{
+      width: 100%;
+    }
+
+    footer img {
+        width: 100%;  
+    }
+
+    .terminos {
+        padding: 0px;
+        margin-left: 5%;
+    }
+
+    .redes {
+        margin-left: 30%;
+    }
+
+
+    .us {
+        width: 98%;
+    }
+
+
+
+    .top{
+      width: 90%;
+      margin-left: 5px;
+    }
+
+
+    }
+
+    @media (max-width: 480px) {
+          
+    .logo {
+        display: none;
+    }
+
+    .cuerpo {
+        width: 100%;
+        margin-top: 80px;
+        margin-left: 0px;
+    }
+
+    .separadores {
+      flex-direction: column;
+    }
+
+    .separadores button {
+        width: auto;
+
+    }
+
+    .comics {
+        width: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0rem;
+        align-self: center;
+    }
+
+    .comic {
+        width: 100%;
+        min-height: 0vh;
+        margin-bottom: 4rem;
+        padding: 0px;
+    }
+
+    .comic img {
+        width: 80%;
+        align-self: center;
+    }
+
+    .comic .precio {
+      align-self: center;
+    }
+
+    .botones{
+      gap: 3rem;
+    }
+
+    
+
+    .generos {
+      display: flex;
+      flex-direction: column;
+    }
+
+    
+    footer{
+      display: flex;
+      flex-direction: column;
+    }
+
+    footer p{
+      font-size: small;
+      padding: 10px;
+    }
+
+    .terminos {
+        
+      flex-direction: column;
+      text-align: center;
+      margin-left: 0%;
+
+    }
+
+    .redes {
+        align-self: center;
+        display: flex;
+        margin-left: 0%;
+    }
+
+
+
+    }
+    

@@ -9,6 +9,9 @@
 </head>
 
 <body>
+  <script src="script.js"></script>
+
+
     <div class="carrito"></div>
 
     <div class="header">
@@ -34,8 +37,25 @@
         </nav>
     </div>
 
-    <div class="banner" id="banner"></div>
-
+    <div class="banner" id="banner">
+      <div class="slides">
+          <div class="slide active">
+              <img src="webdesk_rustica_1920x200px.webp" alt="Banner Image 1">
+          </div>
+          <div class="slide">
+              <img src="mazinger.png" alt="Banner Image 2">
+          </div>
+          <div class="slide">
+              <img src="silencio.png" alt="Banner Image 3">
+          </div>
+          <div class="slide">
+            <img src="webdesk_cartone_1920x200px_1__2.webp" alt="Banner Image 4">
+        </div>
+      </div>
+      <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
+      <button class="next" onclick="changeSlide(1)">&#10095;</button>
+  </div>
+  
     <div class="cuerpo">
         <div class="separadores">
             <button id="new">NOVEDADES</button>

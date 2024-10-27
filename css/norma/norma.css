@@ -79,15 +79,51 @@ nav {
     text-align: center;
 }
 
+
 .banner {
-    width: 100vw;
-    height: 20vh;
+    position: relative;
+    max-width: 100%;
+    max-height: 20vh;
     margin-top: 130px;
-    background-image: url('webdesk_cartone_1920x200px_1__2.webp');
-    background-size: cover;
-    background-position: center;
     margin-bottom: 2rem;
 }
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
 
 .cuerpo {
     width: 80vw;

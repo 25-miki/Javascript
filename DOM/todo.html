@@ -15,14 +15,19 @@
     <form id="todoForm">
         <label for="tarea">Tarea:</label><br>
         <input type="text" id="tarea" name="tarea"><br>
+
         <label for="tiempo">Tiempo:</label><br>
         <input type="text" id="tiempo" name="tiempo"><br>
+
         <label for="deadline">Deadline:</label><br>
         <input type="date" id="deadline" name="deadline"><br>
+
         <label for="alta">Alta:</label><br>
         <input type="date" id="alta" name="alta"><br>
+
         <label for="estado">Estado:</label><br>
         <input type="text" id="estado" name="estado"><br>
+
         <label for="desc">Descripción:</label><br>
         <input type="text" id="desc" name="desc"><br>
         <br>
@@ -88,7 +93,13 @@
             });
 
             fila.querySelector('.modificar').addEventListener('click', function() {
-                
+                let eleccion = this.closest('tr');
+                let sign = prompt("What's your sign?");
+
+                if (sign.toLowerCase() == "scorpio") {
+                alert("Wow! I'm a Scorpio too!");
+                }
+
             });
 
             document.getElementById('todoForm').reset();

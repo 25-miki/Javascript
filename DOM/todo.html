@@ -12,7 +12,7 @@
         body{
             font-family: "Quicksand", sans-serif;
             display: grid;
-            grid-template-columns: 300px 1fr;
+            grid-template-columns: 400px 1fr;
         }
 
         h1{
@@ -24,23 +24,50 @@
             justify-content: center;
             display: flex;
             flex-direction: column;
+            margin: 50px;
+            
         }
 
-        .list{
+        .lista{
             grid-column: 2/3;
+            margin-left: 100px;
+            display: flex;
         }
 
-        #lista input[type=text],
-        #lista input[type=date] {
+        .card{
+            height: auto;
+            width: 300px;
+            background-color: aliceblue;
+            border: 2px solid rgb(224, 240, 253);
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .card p{
+            margin: 5px;
+        }
+
+        .card button{
+            margin: 5px;
+        }
+
+        .card input[type=text],
+        .card input[type=date],
+        .card select,
+        .card textarea {
             display: none;
         }
 
-        #lista .editMode input[type=text],
-        #lista .editMode input[type=date] {
+        .card .editMode input[type=text],
+        .card .editMode input[type=date],
+        .card .editMode select,
+        .card .editMode textarea {
             display: block;
         }
 
-        #lista .editMode label {
+        .card .editMode label {
             display: none;
         }
     </style>
@@ -49,149 +76,190 @@
 
     <h1>To-Do</h1>
 
-    <form  class="form" id="todoForm">
+    <div class="form">
 
-        <label for="tarea">Tarea:</label><br>
-        <input type="text" id="tarea" name="tarea"><br>
+    
 
-        <label for="tiempo">Tiempo:</label><br>
-        <input type="text" id="tiempo" name="tiempo"><br>
+        <form  id="todoForm">
 
-        <label for="deadline">Deadline:</label><br>
-        <input type="date" id="deadline" name="deadline"><br>
+            <h3>Introducir tarea:</h3>
 
-        <label for="alta">Alta:</label><br>
-        <input type="date" id="alta" name="alta"><br>
+            <label for="tarea">Tarea:</label><br>
+            <input type="text" id="tarea" name="tarea"><br>
 
-        <label for="estado">Estado:</label><br>
-        <input type="text" id="estado" name="estado"><br>
+            <label for="tiempo">Tiempo:</label><br>
+            <input type="number" id="tiempo" name="tiempo" placeholder="Horas"><br>
 
-        <label for="desc">Descripción:</label><br>
-        <input type="text" id="desc" name="desc"><br><br>
+            <label for="deadline">Deadline:</label><br>
+            <input type="date" id="deadline" name="deadline"><br>
 
-        <input type="submit" value="Submit">
+            <label for="alta">Alta:</label><br>
+            <input type="date" id="alta" name="alta"><br>
 
-    </form> 
+            <label for="estado">Estado:</label><br>
+            <select type="text" id="estado" name="estado">
+                <option value="Activo">Activo</option>
+                <option value="Pendiente">Pendiente</option>
+                <option value="Terminado">Terminado</option>
+            </select><br>
 
-    <table class="lista" id="lista">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Nombre</th>
-                <th>Tiempo</th>
-                <th>Deadline</th>
-                <th>Alta</th>
-                <th>Estado</th>
-                <th>Descripción</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
+            <label for="desc">Descripción:</label><br>
+            <textarea type="text" id="desc" name="desc"></textarea>
+
+            <input type="submit" value="Submit">
+
+        </form> 
+
+        <label>Ordenar por:</label>
+            <select id="ordenarPor">
+                <option value="tiempo">Tiempo</option>
+                <option value="estado">Estado</option>
+                <option value="nombre">Nombre</option>
+            </select>
+        <button id="ordenarBtn">Ordenar</button>
+
+    </div>
+
+    
+
+    <div class="lista" id="lista">
+        
+            <div class="card">
+                <p>0</p>
+                
+                <p style="font-weight: bold;">Nombre:</p>
+                <label id="lNombre">Prueba</label>
+                
+                <p style="font-weight: bold;">Tiempo:</p>
+                <label id="lTiempo">30 años</label>
+
+                <p style="font-weight: bold;">Deadline:</p>
+                <label id="lDead">???</label>
+
+                <p style="font-weight: bold;">Alta:</p>
+                <label id="lAlta">28/09/1994</label>
+
+                <p style="font-weight: bold;">Estado:</p>
+                <label id="lEstado">Viva</label>
+ 
+                <p style="font-weight: bold;">Descripción:</p>
+                <label id="lDesc">Monday you could fall apart, Tuesday Wednesday break my heart, 
+                    Thursday doesn't event start but Friday I'm in love</label>
+ 
+                <button class="eliminar">Eliminar</button>
+                <button class="modificar">Modificar</button>
+
+            </div>
+        </div>
     
     <script>
-        let count = 0;
+        document.addEventListener('DOMContentLoaded', () => {
+    let count = 0;
+    let tareas = [];
 
-        document.getElementById('todoForm').addEventListener('submit', function(event) {
-            event.preventDefault(); 
+    const lista = document.getElementById('lista');
+    const form = document.getElementById('todoForm');
+    const ordenarBtn = document.getElementById('ordenarBtn');
+    const ordenarPor = document.getElementById('ordenarPor');
 
-            count++;
-          
-            const nombre = document.getElementById('tarea').value;
-            const tiempo = document.getElementById('tiempo').value;
-            const deadline = document.getElementById('deadline').value;
-            const alta = document.getElementById('alta').value;
-            const estado = document.getElementById('estado').value;
-            const desc = document.getElementById('desc').value;
+    // Crear tarea y agregar al array
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        count++;
 
-            const lista = document.getElementById('lista');
-            const fila = document.createElement("tr");
+        const nuevaTarea = {
+            id: count,
+            nombre: document.getElementById('tarea').value,
+            tiempo: parseInt(document.getElementById('tiempo').value, 10),
+            deadline: document.getElementById('deadline').value,
+            alta: document.getElementById('alta').value,
+            estado: document.getElementById('estado').value,
+            descripcion: document.getElementById('desc').value,
+        };
 
-            fila.innerHTML = `
-                <td>
-                    <label>${count}</label>
-                </td>
-                <td>
-                    <label id="lNombre">${nombre}</label>
-                    <input id="iNombre" type="text" value="${nombre}">
-                </td>
-                <td>
-                    <label id="lTiempo">${tiempo}</label>
-                    <input id="iTiempo" type="text" value="${tiempo}">
-                </td>
-                <td>
-                    <label id="lDead">${deadline}</label>
-                    <input id="iDead" type="date" value="${deadline}">
-                </td>
-                <td>
-                    <label id="lAlta">${alta}</label>
-                    <input id="iAlta" type="date" value="${alta}">
-                </td>
-                <td>
-                    <label id="lEstado">${estado}</label>
-                    <input id="iEstado" type="text" value="${estado}">
-                </td>
-                <td>
-                    <label id="lDesc">${desc}</label>
-                    <input id="iDesc" type="text" value="${desc}">
-                </td>
-                <td>
-                    <button class="eliminar">Eliminar</button>
-                    <button class="modificar">Modificar</button>
-                    <button class="cambiar">Cambiar estado</button>
-                </td>
+        tareas.push(nuevaTarea);
+        renderTareas(); // Renderiza las tareas en la interfaz
+        form.reset();
+    });
+
+    // Renderizar tareas
+    function renderTareas() {
+        lista.innerHTML = ''; // Limpia la lista actual
+        tareas.forEach(tarea => {
+            const card = document.createElement('div');
+            card.className = 'card';
+            card.innerHTML = `
+                <p style="font-weight: bold;">ID: ${tarea.id}</p>
+                
+                <p style="font-weight: bold;">Nombre:</p>
+                <label>${tarea.nombre}</label>
+                <input id="iNombre" type="text" value="${tarea.nombre}">
+                
+                <p style="font-weight: bold;">Tiempo:</p>
+                <label>${tarea.tiempo}</label>
+                <input id="iTiempo" type="number" value="${tarea.tiempo}">
+
+                <p style="font-weight: bold;">Deadline:</p>
+                <label>${tarea.deadline}</label>
+                <input id="iDead" type="date" value="${tarea.deadline}">
+
+                <p style="font-weight: bold;">Alta:</p>
+                <label>${tarea.alta}</label>
+                <input id="iAlta" type="date" value="${tarea.alta}">
+
+                <p style="font-weight: bold;">Estado:</p>
+                <label>${tarea.estado}</label>
+                <select id="iEstado">
+                    <option value="Activo" ${tarea.estado === 'Activo' ? 'selected' : ''}>Activo</option>
+                    <option value="Pendiente" ${tarea.estado === 'Pendiente' ? 'selected' : ''}>Pendiente</option>
+                    <option value="Terminado" ${tarea.estado === 'Terminado' ? 'selected' : ''}>Terminado</option>
+                </select>
+                
+                <p style="font-weight: bold;">Descripción:</p>
+                <label>${tarea.descripcion}</label>
+                <textarea id="iDesc">${tarea.descripcion}</textarea>
+                
+                <button class="eliminar">Eliminar</button>
+                <button class="modificar">Modificar</button>
             `;
 
-            lista.querySelector('tbody').appendChild(fila);
-
-            // Eliminar fila
-            fila.querySelector('.eliminar').addEventListener('click', function() {
-                fila.remove();
+            // Eliminar tarea
+            card.querySelector('.eliminar').addEventListener('click', function () {
+                tareas = tareas.filter(t => t.id !== tarea.id); // Filtrar tarea eliminada
+                renderTareas(); // Actualizar la vista
             });
 
-            // Modificar fila
-            fila.querySelector('.modificar').addEventListener('click', function() {
-                const eleccion = this.closest('tr');
-                eleccion.classList.toggle("editMode");
-
-                const lNombre = eleccion.querySelector("#lNombre");
-                const iNombre = eleccion.querySelector("#iNombre");
-
-                const lTiempo = eleccion.querySelector("#lTiempo");
-                const iTiempo = eleccion.querySelector("#iTiempo");
-
-                const lDead = eleccion.querySelector("#lDead");
-                const iDead = eleccion.querySelector("#iDead");
-
-                const lAlta = eleccion.querySelector("#lAlta");
-                const iAlta = eleccion.querySelector("#iAlta");
-
-                const lEstado = eleccion.querySelector("#lEstado");
-                const iEstado = eleccion.querySelector("#iEstado");
-
-                const lDesc = eleccion.querySelector("#lDesc");
-                const iDesc = eleccion.querySelector("#iDesc");
-
-                if (eleccion.classList.contains("editMode")) {
-                    iNombre.value = lNombre.textContent;
-                    iTiempo.value = lTiempo.textContent;
-                    iDead.value = lDead.textContent;
-                    iAlta.value = lAlta.textContent;
-                    iEstado.value = lEstado.textContent;
-                    iDesc.value = lDesc.textContent;
-                } else {
-                    lNombre.textContent = iNombre.value;
-                    lTiempo.textContent = iTiempo.value;
-                    lDead.textContent = iDead.value;
-                    lAlta.textContent = iAlta.value;
-                    lEstado.textContent = iEstado.value;
-                    lDesc.textContent = iDesc.value;
+            // Modificar tarea
+            card.querySelector('.modificar').addEventListener('click', function () {
+                const editMode = card.classList.toggle('editMode');
+                if (!editMode) {
+                    // Guardar cambios
+                    tarea.nombre = card.querySelector('#iNombre').value;
+                    tarea.tiempo = parseInt(card.querySelector('#iTiempo').value, 10);
+                    tarea.deadline = card.querySelector('#iDead').value;
+                    tarea.alta = card.querySelector('#iAlta').value;
+                    tarea.estado = card.querySelector('#iEstado').value;
+                    tarea.descripcion = card.querySelector('#iDesc').value;
+                    renderTareas(); // Actualizar la vista
                 }
             });
 
-            document.getElementById('todoForm').reset();
+            lista.appendChild(card);
         });
+    }
+
+    // Ordenar tareas
+    ordenarBtn.addEventListener('click', function () {
+        const criterio = ordenarPor.value;
+        tareas.sort((a, b) => {
+            if (criterio === 'tiempo') return a.tiempo - b.tiempo;
+            if (criterio === 'estado') return a.estado.localeCompare(b.estado);
+            if (criterio === 'nombre') return a.nombre.localeCompare(b.nombre);
+        });
+        renderTareas(); // Actualizar vista tras ordenar
+    });
+});
+
     </script>
 
 </body>

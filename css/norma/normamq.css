@@ -76,21 +76,27 @@
     }
 
     footer img {
-        width: 100%;  
+      width: 100%;  
     }
 
     .terminos {
-        padding: 0px;
-        margin-left: 5%;
+      padding: 0px;
+      margin-left: 5%;
     }
 
     .redes {
-        margin-left: 30%;
+      margin-left: 30%;
     }
 
 
     .us {
-        width: 98%;
+      width: 80%;
+      height: auto;
+    }
+
+    .us img{
+      object-fit: contain;
+      height: auto;
     }
 
 
@@ -106,7 +112,7 @@
     @media (max-width: 480px) {
           
     .logo {
-        display: none;
+      display: none;
     }
 
     .cuerpo {
@@ -125,7 +131,7 @@
     }
 
     .comics {
-        width: auto;
+        width: 90%;
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 0rem;
@@ -157,6 +163,16 @@
     .generos {
       display: flex;
       flex-direction: column;
+    }
+
+    .us {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      width: 70vw;
+    }
+    .us img{
+      object-fit: contain;
     }
 
     

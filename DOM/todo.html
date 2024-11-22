@@ -4,12 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-do</title>
+    <style>
+        #lista input[type=text],
+        #lista input[type=date] {
+            display: none;
+        }
+
+        #lista .editMode input[type=text],
+        #lista .editMode input[type=date] {
+            display: block;
+        }
+
+        #lista .editMode label {
+            display: none;
+        }
+    </style>
 </head>
-
-<style>
-
-</style>
-
 <body>
 
     <form id="todoForm">
@@ -29,12 +39,11 @@
         <input type="text" id="estado" name="estado"><br>
 
         <label for="desc">Descripción:</label><br>
-        <input type="text" id="desc" name="desc"><br>
-        <br>
+        <input type="text" id="desc" name="desc"><br><br>
         <input type="submit" value="Submit">
     </form> 
 
-    <table id="lista" border="1">
+    <table id="lista">
         <thead>
             <tr>
                 <th>#</th>
@@ -52,7 +61,6 @@
     </table>
     
     <script>
-
         let count = 0;
 
         document.getElementById('todoForm').addEventListener('submit', function(event) {
@@ -69,16 +77,35 @@
 
             const lista = document.getElementById('lista');
             const fila = document.createElement("tr");
-            lista.appendChild(fila);
 
             fila.innerHTML = `
-                <td>${count}</td>
-                <td>${nombre}</td>
-                <td>${tiempo}</td>
-                <td>${deadline}</td>
-                <td>${alta}</td>
-                <td>${estado}</td>
-                <td>${desc}</td>
+                <td>
+                    <label>${count}</label>
+                </td>
+                <td>
+                    <label id="lNombre">${nombre}</label>
+                    <input id="iNombre" type="text" value="${nombre}">
+                </td>
+                <td>
+                    <label id="lTiempo">${tiempo}</label>
+                    <input id="iTiempo" type="text" value="${tiempo}">
+                </td>
+                <td>
+                    <label id="lDead">${deadline}</label>
+                    <input id="iDead" type="date" value="${deadline}">
+                </td>
+                <td>
+                    <label id="lAlta">${alta}</label>
+                    <input id="iAlta" type="date" value="${alta}">
+                </td>
+                <td>
+                    <label id="lEstado">${estado}</label>
+                    <input id="iEstado" type="text" value="${estado}">
+                </td>
+                <td>
+                    <label id="lDesc">${desc}</label>
+                    <input id="iDesc" type="text" value="${desc}">
+                </td>
                 <td>
                     <button class="eliminar">Eliminar</button>
                     <button class="modificar">Modificar</button>
@@ -86,25 +113,55 @@
                 </td>
             `;
 
-            lista.appendChild(fila);
+            lista.querySelector('tbody').appendChild(fila);
 
+            // Eliminar fila
             fila.querySelector('.eliminar').addEventListener('click', function() {
-                this.closest('tr').remove();
+                fila.remove();
             });
 
+            // Modificar fila
             fila.querySelector('.modificar').addEventListener('click', function() {
-                let eleccion = this.closest('tr');
-                let sign = prompt("What's your sign?");
+                const eleccion = this.closest('tr');
+                eleccion.classList.toggle("editMode");
 
-                if (sign.toLowerCase() == "scorpio") {
-                alert("Wow! I'm a Scorpio too!");
+                const lNombre = eleccion.querySelector("#lNombre");
+                const iNombre = eleccion.querySelector("#iNombre");
+
+                const lTiempo = eleccion.querySelector("#lTiempo");
+                const iTiempo = eleccion.querySelector("#iTiempo");
+
+                const lDead = eleccion.querySelector("#lDead");
+                const iDead = eleccion.querySelector("#iDead");
+
+                const lAlta = eleccion.querySelector("#lAlta");
+                const iAlta = eleccion.querySelector("#iAlta");
+
+                const lEstado = eleccion.querySelector("#lEstado");
+                const iEstado = eleccion.querySelector("#iEstado");
+
+                const lDesc = eleccion.querySelector("#lDesc");
+                const iDesc = eleccion.querySelector("#iDesc");
+
+                if (eleccion.classList.contains("editMode")) {
+                    iNombre.value = lNombre.textContent;
+                    iTiempo.value = lTiempo.textContent;
+                    iDead.value = lDead.textContent;
+                    iAlta.value = lAlta.textContent;
+                    iEstado.value = lEstado.textContent;
+                    iDesc.value = lDesc.textContent;
+                } else {
+                    lNombre.textContent = iNombre.value;
+                    lTiempo.textContent = iTiempo.value;
+                    lDead.textContent = iDead.value;
+                    lAlta.textContent = iAlta.value;
+                    lEstado.textContent = iEstado.value;
+                    lDesc.textContent = iDesc.value;
                 }
-
             });
 
             document.getElementById('todoForm').reset();
         });
-
     </script>
 
 </body>

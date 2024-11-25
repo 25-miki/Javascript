@@ -38,6 +38,7 @@
         .lista {
             grid-column: 2/3;
             margin-left: 100px;
+            margin-right: 100px;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
         }
@@ -46,7 +47,7 @@
             height: auto;
             width: 300px;
             background-color: aliceblue;
-            border: 2px solid rgb(224, 240, 253);
+            border: 2px solid cornflowerblue;
             display: flex;
             flex-direction: column;
             padding: 10px;
@@ -113,28 +114,31 @@
         .clasificadores {
             grid-column: 2/3;
             margin-left: 100px;
-            margin-bottom: -2px;
+            margin-bottom: -1px;
             z-index: 1;
 
         }
 
         .classBtn{
             background-color: aliceblue;
-            border: 1px solid rgb(226, 241, 254);
+            font-family: "Quicksand", sans-serif;
+            border: 1px solid cornflowerblue;
+            color: rgb(0, 67, 193);
             margin-right: 0px;
             padding: 5px;
 
         }
 
-        .listaA, .listaP, .listaT{
+        .lista, .listaA, .listaP, .listaT{
             margin-left: 100px;
+            margin-right: 100px;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             background-color: aliceblue;
-            border: 1px solid rgb(226, 241, 254);
+            border: 1px solid cornflowerblue;
         }
 
-        .listaP, .listaT{
+        .listaA, .listaP, .listaT{
             display: none;
         }
 
@@ -148,6 +152,7 @@
 <h1>To-Do</h1>
 
 <div class="clasificadores">
+    <button class="classBtn" id="Todas">Todas</button>
     <button class="classBtn" id="Activas">Activas</button>
     <button class="classBtn" id="Pendientes">Pendientes</button>
     <button class="classBtn" id="Terminadas">Terminadas</button>
@@ -186,7 +191,6 @@
         <label>Ordenar por:</label>
         <select id="ordenarPor">
             <option value="tiempo">Tiempo</option>
-            <option value="estado">Estado</option>
             <option value="nombre">Nombre</option>
         </select>
         <br>
@@ -194,7 +198,7 @@
     </div>
 </div>
 
-
+<div class="lista" id="lista"></div>
 <div class="listaA" id="listaA"></div>
 <div class="listaP" id="listaP"></div>
 <div class="listaT" id="listaT"></div>
@@ -209,6 +213,9 @@
         let tareasPendientes = [];
         let tareasTerminadas = [];
 
+        const lista = document.getElementById('lista');
+
+
         const listaA = document.getElementById('listaA');
         const listaP = document.getElementById('listaP');
         const listaT = document.getElementById('listaT');
@@ -220,6 +227,8 @@
         const listaABtn = document.getElementById('Activas');
         const listaPBtn = document.getElementById('Pendientes');
         const listaTBtn = document.getElementById('Terminadas');
+        const listaBtn = document.getElementById('Todas');
+
 
         // Crear tarea y agregar al array
         form.addEventListener('submit', function (event) {
@@ -253,6 +262,75 @@
 
         // Renderizar tareas
         function renderTareas() {
+
+            //Lista completa
+
+            lista.innerHTML = ''; // Limpia la lista actual
+            tareas.forEach(tarea => {
+                const card = document.createElement('div');
+                card.id = tarea.id;
+                card.className = 'card';
+                card.innerHTML = `
+                    <p style="font-weight: bold;">ID: ${tarea.id}</p>
+
+                    <p style="font-weight: bold;">Nombre:</p>
+                    <label>${tarea.nombre}</label>
+                    <input id="iNombre" type="text" value="${tarea.nombre}">
+
+                    <p style="font-weight: bold;">Tiempo:</p>
+                    <label>${tarea.tiempo}</label>
+                    <input id="iTiempo" type="number" value="${tarea.tiempo}">
+
+                    <p style="font-weight: bold;">Deadline:</p>
+                    <label>${tarea.deadline}</label>
+                    <input id="iDead" type="date" value="${tarea.deadline}">
+
+                    <p style="font-weight: bold;">Alta:</p>
+                    <label>${tarea.alta}</label>
+                    <input id="iAlta" type="date" value="${tarea.alta}">
+
+                    <p style="font-weight: bold;">Estado:</p>
+                    <label>${tarea.estado}</label>
+                    <select id="iEstado">
+                        <option value="Activo" ${tarea.estado === 'Activo' ? 'selected' : ''}>Activo</option>
+                        <option value="Pendiente" ${tarea.estado === 'Pendiente' ? 'selected' : ''}>Pendiente</option>
+                        <option value="Terminado" ${tarea.estado === 'Terminado' ? 'selected' : ''}>Terminado</option>
+                    </select>
+
+                    <p style="font-weight: bold;">Descripción:</p>
+                    <label>${tarea.descripcion}</label>
+                    <textarea id="iDesc">${tarea.descripcion}</textarea>
+
+                    <div class="botones">
+                        <button class="eliminar">Eliminar</button>
+                        <button class="modificar">Modificar</button>
+                    </div>
+                `;
+
+                // Agregar evento de eliminar
+                card.querySelector('.eliminar').addEventListener('click', function () {
+                    tareas = tareas.filter(t => t.id !== tarea.id);
+                    renderTareas();
+                });
+
+                // Agregar evento de modificar
+                card.querySelector('.modificar').addEventListener('click', function () {
+                    const isEditMode = card.classList.toggle('editMode');
+
+                    if (!isEditMode) {
+                        tarea.nombre = card.querySelector('#iNombre').value;
+                        tarea.tiempo = parseInt(card.querySelector('#iTiempo').value, 10);
+                        tarea.deadline = card.querySelector('#iDead').value;
+                        tarea.alta = card.querySelector('#iAlta').value;
+                        tarea.estado = card.querySelector('#iEstado').value;
+                        tarea.descripcion = card.querySelector('#iDesc').value;
+                        renderTareas();
+                    }
+                });
+
+                lista.appendChild(card);
+            });
+
 
             //Lista de Activas
 
@@ -471,35 +549,52 @@
             renderTareas(); // Actualizar vista tras ordenar
         });
 
-        listaABtn.addEventListener('click', function(){
-            listaA.style.display = 'grid';
+
+        listaBtn.addEventListener('click', function(){
+            lista.style.display = 'grid';
+            listaA.style.display = 'none';
             listaP.style.display = 'none';
             listaT.style.display = 'none';
 
-            listaABtn.style.borderBottom = 'aliceblue';
-            listaPBtn.style.borderBottom = 'red';
-            listaTBtn.style.borderBottom = 'red';
+            listaBtn.style.borderBottomColor = 'aliceblue';
+            listaABtn.style.borderBottomColor = 'cornflowerblue';
+            listaPBtn.style.borderBottomColor = 'cornflowerblue';
+            listaTBtn.style.borderBottomColor = 'cornflowerblue';
+
+        });
+
+        listaABtn.addEventListener('click', function(){
+            listaA.style.display = 'grid';
+            lista.style.display = 'none';
+            listaP.style.display = 'none';
+            listaT.style.display = 'none';
+
+            listaABtn.style.borderBottomColor = 'aliceblue';
+            listaPBtn.style.borderBottomColor = 'cornflowerblue';
+            listaTBtn.style.borderBottomColor = 'cornflowerblue';
 
         });
 
         listaPBtn.addEventListener('click', function(){
             listaP.style.display = 'grid';
+            lista.style.display = 'none';
             listaA.style.display = 'none';
             listaT.style.display = 'none';
 
-            listaPBtn.style.borderBottom = 'aliceblue';
-            listaABtn.style.borderBottom = 'red';
-            listaTBtn.style.borderBottom = 'red';
+            listaPBtn.style.borderBottomColor = 'aliceblue';
+            listaABtn.style.borderBottomColor = 'cornflowerblue';
+            listaTBtn.style.borderBottomColor = 'cornflowerblue';
         });
 
         listaTBtn.addEventListener('click', function(){
             listaT.style.display = 'grid';
+            lista.style.display = 'none';
             listaP.style.display = 'none';
             listaA.style.display = 'none';
 
-            listaTBtn.style.borderBottom = 'aliceblue';
-            listaPBtn.style.borderBottom = 'red';
-            listaABtn.style.borderBottom = 'red';
+            listaTBtn.style.borderBottomColor = 'aliceblue';
+            listaPBtn.style.borderBottomColor = 'cornflowerblue';
+            listaABtn.style.borderBottomColor = 'cornflowerblue';
         });
 
 

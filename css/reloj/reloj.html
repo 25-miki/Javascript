@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .reloj{
+        position: relative;
+        width: 700px;
+        height: 700px;
+    }
+
+    .esfera{
+        position: absolute;
+    }
+
+    .manecilla{
+        position: absolute;
+        top: 80px;
+        right: 370px;
+        transform-origin: 50% 88%;
+        animation: crono 60s linear infinite;
+        animation-play-state: paused;
+    }
+
+
+    @keyframes crono {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .reloj:hover .manecilla {
+        animation-play-state: running;
+    }
+        
+    
+
+    .reloj :hover{
+        transform: rotate(360deg);
+    }
+
+
+</style>
+
+
+<body>
+    <div class="reloj">
+        <img class="esfera" src="esfera-reloj.png" alt="">
+        <img class="manecilla" src="manecilla-reloj.png" alt="">
+    </div>
+    
+</body>
+</html>

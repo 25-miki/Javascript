@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 500px;
+            height: 500px;
+            background-color: aqua;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pizza {
+            position: absolute;
+            height: 250px;
+            width: 250px;
+            top: 0;
+            right: 0;
+            transform-origin: bottom left;
+        }
+
+        .pizza1 {
+            transform: rotate(0deg);
+        }
+
+        .pizza2 {
+            opacity: 0;
+            transform: rotate(45deg);
+            animation: appear 8s steps(1) infinite;
+        }
+
+        .pizza3 {
+            opacity: 0;
+            transform: rotate(90deg);
+            animation: appear1 8s steps(1) infinite;
+        }
+
+        .pizza4 {
+            opacity: 0;
+            transform: rotate(135deg);
+            animation: appear2 8s steps(1) infinite;
+        }
+
+        .pizza5 {
+            opacity: 0;
+            transform: rotate(180deg);
+            animation: appear3 8s steps(1) infinite;
+        }
+
+        .pizza6 {
+            opacity: 0;
+            transform: rotate(225deg);
+            animation: appear4 8s steps(1) infinite;
+        }
+
+        .pizza7 {
+            opacity: 0;
+            transform: rotate(270deg);
+            animation: appear5 8s steps(1) infinite;
+        }
+
+        .pizza8 {
+            opacity: 0;
+            transform: rotate(315deg);
+            animation: appear6 8s steps(1) infinite;
+        }
+
+        @keyframes appear {
+            0%, 12.5%{
+                opacity: 0;
+            }
+            12.5%, 100%{
+                opacity: 1;
+            }
+        }
+
+        @keyframes appear1 {
+            0%, 25%{
+                opacity: 0;
+            }
+            25%, 100%{
+                opacity: 1;
+            }
+        }
+
+        @keyframes appear2 {
+            0%, 35.5%{
+                opacity: 0;
+            }
+            37.5%, 100%{
+                opacity: 1;
+            }
+        }
+
+        @keyframes appear3 {
+            0%, 50%{
+                opacity: 0;
+            }
+            50%, 100%{
+                opacity: 1;
+            }
+        }
+
+        @keyframes appear4 {
+            0%, 62.5%{
+                opacity: 0;
+            }
+            62.5%, 100%{
+                opacity: 1;
+            }
+        }
+
+        @keyframes appear5 {
+            0%, 75%{
+                opacity: 0;
+            }
+            75%, 100%{
+                opacity: 1;
+            }
+        }
+
+        @keyframes appear6 {
+            0%, 87.5%{
+                opacity: 0;
+            }
+            87.5%, 100%{
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="pizza pizza1" src="pizza.png" alt="">
+        <img class="pizza pizza2" src="pizza.png" alt="">
+        <img class="pizza pizza3" src="pizza.png" alt="">
+        <img class="pizza pizza4" src="pizza.png" alt="">
+        <img class="pizza pizza5" src="pizza.png" alt="">
+        <img class="pizza pizza6" src="pizza.png" alt="">
+        <img class="pizza pizza7" src="pizza.png" alt="">
+        <img class="pizza pizza8" src="pizza.png" alt="">
+    </div>
+</body>
+</html>

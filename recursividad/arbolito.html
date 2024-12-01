@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+let altura = prompt("Dime cuántas filas tiene el arbolito");
+let estrella = "*";
+let espacio = " ";
+
+function pintar(altura, actual = 1) {
+    if (actual > altura) return;
+
+    console.log(espacio.repeat(Math.floor(altura - actual) - 2),estrella.repeat(actual * 2 - 1));
+
+    pintar(altura, actual + 1);
+}
+
+pintar(parseInt(altura)); 
+
+</script>

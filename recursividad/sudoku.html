@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku</title>
+    <style>
+        .container {
+            width: 450px;
+            height: 450px;
+            display: grid;
+            grid-template-columns: repeat(9, 50px);
+            grid-template-rows: repeat(9, 50px);
+            border: 2px solid black;
+        }
+
+        .cell {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="sudokuGrid"></div>
+
+<script>
+    // Sudoku Solver en JavaScript usando backtracking
+
+// Función para verificar si es seguro colocar un número en una posición
+function esSeguro(tablero, fila, col, num) {
+
+    for (let i = 0; i < 9; i++) {
+        if (tablero[fila][i] === num) {
+            return false;
+        }
+        if (tablero[i][col] === num) {
+            return false;
+        }
+    }
+
+
+    // Verificar el subcuadro 3x3
+    let inicioFila = fila - fila % 3;
+    let inicioCol = col - col % 3;
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            if (tablero[i + inicioFila][j + inicioCol] === num) {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
+// Función para resolver el Sudoku utilizando backtracking
+function resolverSudoku(tablero) {
+    for (let fila = 0; fila < 9; fila++) {
+        for (let col = 0; col < 9; col++) {
+            // Si la celda está vacía (representada por 0)
+            if (tablero[fila][col] === 0) {
+                for (let num = 1; num <= 9; num++) {
+                    // Verificar si es seguro colocar el número
+                    if (esSeguro(tablero, fila, col, num)) {
+                        // Colocar el número
+                        tablero[fila][col] = num;
+
+                        // Recursivamente intentar resolver el Sudoku
+                        if (resolverSudoku(tablero)) {
+                            return true;
+                        }
+
+                        // Si no es posible, deshacer el movimiento (backtrack)
+                        tablero[fila][col] = 0;
+                    }
+                }
+                // Si no hay número válido, retornar false
+                return false;
+            }
+        }
+    }
+    // Si no quedan celdas vacías, el Sudoku está resuelto
+    return true;
+}
+
+// Función para imprimir el tablero de Sudoku
+function imprimirTablero(tablero) {
+    for (let i = 0; i < 9; i++) {
+        let fila = "";
+        for (let j = 0; j < 9; j++) {
+            fila += tablero[i][j] + " ";
+        }
+        console.log(fila);
+    }
+}
+
+// Tablero de ejemplo (0 representa las celdas vacías)
+let tablero = [
+    [5, 3, 0, 0, 7, 0, 0, 0, 0],
+    [6, 0, 0, 1, 9, 5, 0, 0, 0],
+    [0, 9, 8, 0, 0, 0, 0, 6, 0],
+    [8, 0, 0, 0, 6, 0, 0, 0, 3],
+    [4, 0, 0, 8, 0, 3, 0, 0, 1],
+    [7, 0, 0, 0, 2, 0, 0, 0, 6],
+    [0, 6, 0, 0, 0, 0, 2, 8, 0],
+    [0, 0, 0, 4, 1, 9, 0, 0, 5],
+    [0, 0, 0, 0, 8, 0, 0, 7, 9]
+];
+
+// Resolver el Sudoku
+if (resolverSudoku(tablero)) {
+    console.log("Sudoku resuelto:");
+    imprimirTablero(tablero);
+} else {
+    console.log("No se pudo resolver el Sudoku.");
+}
+
+
+</script>
+</body>
+</html>

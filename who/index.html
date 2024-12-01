@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Gatetes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Catamaran:wght@100..900&display=swap" rel="stylesheet">
+    
+    <style>
+        body{
+            font-family: "Catamaran", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            justify-items: center;
+        }
+
+        .gatetes{
+            z-index: 0;
+            display: grid;
+            grid-template-columns: repeat(4, 300px);
+            gap: 20px;
+        }
+
+        .gato{
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .gato img{
+            height: 250px;
+            width: 250px;
+            background-repeat: no-repeat;
+            object-fit: cover;
+            border-radius: 25px;
+        }
+
+        .guesses{
+            position: fixed;
+            bottom: 0;
+            padding: 10px;
+            font-size: 20px;
+            background-color: white;
+            border-radius: 10px;
+        }
+
+        .guesses input, select{
+            font-size: 17px;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>ADIVINA EL GATITO</h1>
+    <div id="gatos" class="gatetes"></div>
+    <form id="guesses" class="guesses">
+        <label for="raza">Raza</label>
+        <input type="text" id="raza">
+
+        <label for="ojos">Ojos</label>
+        <input type="text" id="ojos">
+
+        <label for="pelo">Pelo</label>
+        <input type="text" id="pelo">
+
+        <label for="edad">Edad</label>
+        <select name="edad" id="edad">
+            <option value="bebe">Bebé</option>
+            <option value="joven">Joven</option>
+            <option value="viejo">Viejo</option>
+        </select>
+
+        <input type="submit" value="Probar">
+    </form>
+
+    <script src="gatetes.js"></script>
+
+    <script>
+    
+        let chosenCat;
+
+        var gatosOriginales = [...gatetes];
+        
+        var intentos = 0;
+
+        // Función para iniciar el juego
+        function iniciarJuego() {
+            chosenCat = gatetes[Math.floor(Math.random() * gatetes.length)];
+            console.log("Gato secreto:", chosenCat);
+            var intentos = 0;
+
+            //Guardar copia de la lista original
+            gatetes = [...gatosOriginales];
+
+            // Renderizar los gatos
+            renderGatos();
+
+            // Limpiar campos del formulario
+            document.getElementById("guesses").reset();
+        }
+
+        // Renderizar los gatos en el DOM
+        function renderGatos() {
+
+            const gatos = document.getElementById("gatos");
+            gatos.innerHTML = "";
+            gatetes.forEach(gatete => {
+                const gato = document.createElement("div");
+                gato.className = "gato";
+                gato.innerHTML = `
+                    <img src="${gatete.img}"></img>
+                    <h3>${gatete.nombre.toUpperCase()}</h3>
+                    <h4>Raza: ${gatete.raza.toUpperCase()}</h4>
+                    <h4>Ojos: ${gatete.color_ojos.toUpperCase()}</h4>
+                    <h4>Pelo: ${gatete.color_pelo.toUpperCase()}</h4>
+                    <h4>Edad: ${gatete.edad.toUpperCase()}</h4>
+                    <button class="choose" data-id="${gatete.id}">¡Es este!</button>
+                `;
+                gatos.appendChild(gato);
+            });
+        }
+
+        // Detectar elección del jugador
+        const gatos = document.getElementById("gatos");
+        gatos.addEventListener("click", function (event) {
+            if (event.target.classList.contains("choose")) {
+                const chosenId = parseInt(event.target.dataset.id, 10);
+                if (chosenId === chosenCat.id) {
+                    alert("¡Has ganado! Era " + chosenCat.nombre + ". Intentos: " + intentos);
+                    iniciarJuego(); // Reiniciar el juego
+                } else {
+                    alert("Ese no es. ¡Intenta de nuevo!");
+                    intentos++;
+                }
+            }
+        });
+
+        // Filtrar gatos según las conjeturas
+        const guesses = document.getElementById("guesses");
+        guesses.addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevenir recarga de la página
+
+            const guessEyes = document.getElementById("ojos").value.toLowerCase();
+            const guessHair = document.getElementById("pelo").value.toLowerCase();
+            const guessAge = document.getElementById("edad").value.toLowerCase();
+            const guessRace = document.getElementById("raza").value.toLowerCase();
+
+            // Filtrar según las conjeturas
+            if (guessEyes === chosenCat.color_ojos) {
+                gatetes = gatetes.filter(gato => gato.color_ojos.toLowerCase() === guessEyes);
+            }else{
+                gatetes = gatetes.filter(gato => gato.color_ojos.toLowerCase() != guessEyes);
+            }
+
+            if (guessHair === chosenCat.color_pelo) {
+                gatetes = gatetes.filter(gato => gato.color_pelo.toLowerCase() === guessHair);
+            }else{
+                gatetes = gatetes.filter(gato => gato.color_pelo.toLowerCase() != guessHair);
+            }
+
+            if (guessAge === chosenCat.edad) {
+                gatetes = gatetes.filter(gato => gato.edad.toLowerCase() === guessAge);
+            }else{
+                gatetes = gatetes.filter(gato => gato.edad.toLowerCase() != guessAge);
+            }
+
+            if (guessRace === chosenCat.raza) {
+                gatetes = gatetes.filter(gato => gato.raza.toLowerCase() === guessRace);
+            }else{
+                gatetes = gatetes.filter(gato => gato.raza.toLowerCase() != guessRace);
+            }
+        
+
+            renderGatos();
+
+            intentos++;
+
+        });
+
+        // Iniciar el juego al cargar la página
+        iniciarJuego();
+
+    </script>
+</body>
+</html>

@@ -137,7 +137,7 @@ var gatetes = [
     {
       "id": 16,
       "nombre": "luna",
-      "raza": "europea",
+      "raza": "europeo",
       "color_pelo": "tuxedo",
       "color_ojos": "verdes",
       "edad": "bebe",

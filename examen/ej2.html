@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items:center;
+            justify-content: center;
+            width:100vw;
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+        
+        /* Estilos del reloj */
+
+        .clock {
+            font-size: 40px; 
+            margin: 40px;
+        }
+
+        /* Estilos del tablero */
+        .game-board {
+            display: grid;
+            grid-template-rows: 150px 150px 150px;
+            grid-template-columns: 150px 150px 150px;
+        }
+
+        .box {
+            background: #444;
+            border: 1px solid #555;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #AAA;
+            font-size: 80px;
+        }
+
+        .win {
+            background: rgb(90, 12, 12);
+            border: 1px solid #555;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #AAA;
+            font-size: 80px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>3 en raya</h1>
+    <div class="game-board">
+        <div id="1" class="box"></div>
+        <div id="2" class="box"></div>
+        <div id="3" class="box"></div>
+        <div id="4" class="box"></div>
+        <div id="5" class="box"></div>
+        <div id="6" class="box"></div>
+        <div id="7" class="box"></div>
+        <div id="8" class="box"></div>
+        <div id="9" class="box"></div>
+      </div>
+      <div class="clock">00:00</div>
+</body>
+</html>
+
+<script>
+
+    var player1 = 0;
+    var player2 = 1;
+    var mark;
+    var auth = false;
+
+    function autenticar(){
+        casilla1 = document.getElementById("1");
+        casilla2 = document.getElementById("2");
+        casilla3 = document.getElementById("3");
+        casilla4 = document.getElementById("4");
+        casilla5 = document.getElementById("5");
+        casilla6 = document.getElementById("6");
+        casilla7 = document.getElementById("7");
+        casilla8 = document.getElementById("8");
+        casilla9 = document.getElementById("9");
+
+        
+
+        if(casilla1.innerHTML != "" && casilla1.innerHTML === casilla2.innerHTML && casilla2.innerHTML === casilla3.innerHTML){
+            auth = true;
+            casilla1.className = "win";
+            casilla2.className = "win";
+            casilla3.className = "win";
+        };
+
+        if(casilla4.innerHTML != "" && casilla4.innerHTML === casilla5.innerHTML && casilla5.innerHTML === casilla6.innerHTML){
+            auth = true;
+        };
+
+        if(casilla7.innerHTML != "" && casilla7.innerHTML === casilla8.innerHTML && casilla8.innerHTML === casilla9.innerHTML){
+            auth = true;
+        };
+        
+        if(casilla1.innerHTML != "" && casilla1.innerHTML === casilla4.innerHTML && casilla4.innerHTML === casilla7.innerHTML){
+            auth = true;
+        };
+
+        if(casilla2.innerHTML != "" && casilla2.innerHTML === casilla5.innerHTML && casilla5.innerHTML === casilla8.innerHTML){
+            auth = true;
+        };
+
+        if(casilla3.innerHTML != "" && casilla3.innerHTML === casilla6.innerHTML && casilla6.innerHTML === casilla9.innerHTML){
+            auth = true;
+        };
+        
+        if(casilla1.innerHTML != "" && casilla1.innerHTML === casilla5.innerHTML && casilla5.innerHTML === casilla9.innerHTML){
+            auth = true;
+        };
+
+        if(casilla3.innerHTML != "" && casilla3.innerHTML === casilla5.innerHTML && casilla5.innerHTML === casilla7.innerHTML){
+            auth = true;
+        };
+
+        if(auth === true){
+            console.log("Han ganado las " + mark + "s");
+        }
+        else{
+            console.log(auth);
+        }
+
+
+    }
+
+
+    
+
+    window.addEventListener("keydown", (event) => {
+        if (player1===0) {
+            mark = "O";
+        }
+        else{
+            mark = "X";
+        }
+
+        switch (event.key) {
+        case "1":
+            var casilla = document.getElementById("1");
+            casilla.innerHTML = mark;
+            
+            if (player1===0) {
+            player1++;
+            player2--;
+            }
+            else{
+                player1--;
+                player2++;
+            }
+            autenticar();
+
+            break;
+        case "2":
+            var casilla = document.getElementById("2");
+            casilla.innerHTML = mark;
+
+            if (player1===0) {
+            player1++;
+            player2--;
+            }
+            else{
+                player1--;
+                player2++;
+            }
+            autenticar();
+
+            break;
+        case "3":
+            var casilla = document.getElementById("3");
+            casilla.innerHTML = mark;
+
+            if (player1===0) {
+            player1++;
+            player2--;
+            }
+            else{
+                player1--;
+                player2++;
+            }
+            autenticar();
+
+            break;
+        case "4":
+            var casilla = document.getElementById("4");
+            casilla.innerHTML = mark;
+
+            if (player1===0) {
+            player1++;
+            player2--;
+            }
+            else{
+                player1--;
+                player2++;
+            }
+            autenticar();
+
+            break;
+        case "5":
+            var casilla = document.getElementById("5");
+            casilla.innerHTML = mark;
+
+            if (player1===0) {
+            player1++;
+            player2--;
+            }
+            else{
+                player1--;
+                player2++;
+            }
+            autenticar();
+
+            break;
+        case "6":
+            var casilla = document.getElementById("6");
+            casilla.innerHTML = mark;
+
+            if (player1===0) {
+            player1++;
+            player2--;
+            }
+            else{
+                player1--;
+                player2++;
+            }
+            autenticar();
+
+            break;
+        case "7":
+            var casilla = document.getElementById("7");
+            casilla.innerHTML = mark;
+
+            if (player1===0) {
+            player1++;
+            player2--;
+            }
+            else{
+                player1--;
+                player2++;
+            }
+            autenticar();
+
+            break;
+        case "8":
+            var casilla = document.getElementById("8");
+            casilla.innerHTML = mark;
+
+            if (player1===0) {
+            player1++;
+            player2--;
+            }
+            else{
+                player1--;
+                player2++;
+            }
+            autenticar();
+
+            break;
+        case "9":
+            var casilla = document.getElementById("9");
+            casilla.innerHTML = mark;
+
+            if (player1===0) {
+            player1++;
+            player2--;
+            }
+            else{
+                player1--;
+                player2++;
+            }
+            autenticar();
+
+            break;
+        default:
+            return; 
+        }
+
+        event.preventDefault();
+    },
+    true,
+);
+
+</script>

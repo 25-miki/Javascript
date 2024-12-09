@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul id="listado-tienda">
+        <!-- Genera aquí el listado -->
+    </ul>
+</body>
+</html>
+<script src="listado-tienda.js"></script>
+<script>
+
+    var categorias = document.getElementById("listado-tienda");
+    
+    function menu(lista){
+        lista.forEach(categoria => {
+            if(categoria.parent_id === 0){
+                const tienda = document.createElement("li");
+                tienda.innerHTML = categoria.name;
+                categorias.appendChild(tienda);
+                const id = categoria.id;
+                submenu(id, tienda, listado);
+            }
+            
+        });
+    }
+
+    function submenu(id, tienda, lista){
+        lista.forEach(categoria => {
+            if(id === categoria.parent_id){
+                const parent = document.createElement("ul");
+                tienda.appendChild(parent);
+                const tienda2 = document.createElement("li");
+                tienda2.innerHTML = categoria.name;
+                parent.appendChild(tienda2);
+                const id2 = categoria.id;
+                console.log(id2);
+                submenu(id2, tienda2, listado);
+            }
+        })
+    }
+
+    menu(listado);
+</script>

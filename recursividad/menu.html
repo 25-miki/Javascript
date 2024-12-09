@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* Estilos generales para el menú */
+#menu ul {
+  list-style: none;
+  padding: 5px;
+  margin: 0;
+  background-color: red;
+  border-radius: 5px;
+
+}
+
+#menu li {
+  margin: 5px 0;
+  font-family: Arial, sans-serif;
+  background-color: purple;
+
+}
+
+/* Nivel 1 (primer hijo de #menu) */
+#menu > ul > li {
+  background-color: #007bff; /* Azul */
+  color: white;
+  font-size: 18px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#menu > ul > li > ul{
+    background-color: orange;
+
+}
+
+/* Nivel 2 (segundo nivel del menú) */
+#menu > ul > li > ul > li {
+  background-color: #28a745; /* Verde */
+  color: white;
+  font-size: 16px;
+  padding: 8px;
+  border: 1px solid white;
+  border-radius: 3px;
+  margin-left: 20px; /* Sangría */
+}
+
+#menu > ul > li > ul > li > ul{
+    background-color: black;
+}
+/* Nivel 3 (tercer nivel del menú) */
+#menu > ul > li > ul > li > ul > li {
+  background-color: white; /* Amarillo */
+  color: black;
+  font-size: 14px;
+  padding: 6px;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  margin-left: 40px; /* Mayor sangría */
+}
+
+/* Hover effects */
+#menu li:hover {
+  filter: brightness(90%);
+  cursor: pointer;
+}
+
+
+</style>
+<body>
+    <div id="menu"></div>
+</body>
+</html>
+<script>
+    const menuItems = [
+        { name: "Inicio", link: "/" },
+        { 
+            name: "Productos", 
+            link: "/productos",
+            children: [
+            { name: "Electrónica", link: "/productos/electronica" },
+            { 
+                name: "Ropa", 
+                link: "/productos/ropa",
+                children: [
+                { name: "Hombres", link: "/productos/ropa/hombres" },
+                { name: "Mujeres", link: "/productos/ropa/mujeres" }
+                ]
+            }
+            ]
+        },
+        { name: "Contacto", link: "/contacto" }
+    ];
+
+    function createMenu(items) {
+    const ul = document.createElement('ul'); // Crear una lista no ordenada
+
+    items.forEach(item => {
+        const li = document.createElement('li'); // Crear un elemento de lista
+        const a = document.createElement('a'); // Crear un enlace
+        a.href = item.link;
+        a.textContent = item.name;
+        li.appendChild(a);
+
+        // Si el ítem tiene hijos, llamamos recursivamente
+        if (item.children) {
+        const subMenu = createMenu(item.children); // Llamada recursiva
+        li.appendChild(subMenu);
+        }
+
+        ul.appendChild(li); // Añadir el elemento al menú principal
+    });
+
+    return ul; // Devolver la lista construida
+    }
+
+    // Seleccionar un contenedor en el DOM y añadir el menú
+    const menuContainer = document.getElementById('menu'); // Asegúrate de tener un contenedor con id "menu"
+    menuContainer.appendChild(createMenu(menuItems));
+
+
+</script>

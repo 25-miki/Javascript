@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    margin-top: 20px;
+    color: #333;
+  }
+
+  #pokemon-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+    max-width: 1300px;
+  }
+
+  .pokemon-card {
+    width: 150px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+.pokemon-card {
+width: 200px;
+height: 300px;
+perspective: 1000px; /* Esto crea el efecto 3D */
+cursor: pointer;
+}
+
+.pokemon-card-inner {
+width: 100%;
+height: 100%;
+position: relative;
+transform-style: preserve-3d; /* Mantiene el contenido 3D */
+transition: transform 0.6s; /* Duración del giro */
+}
+
+.pokemon-card.flipped .pokemon-card-inner {
+transform: rotateY(180deg); /* Gira la carta */
+}
+
+.pokemon-card-front, .pokemon-card-back {
+position: absolute;
+width: 100%;
+height: 100%;
+backface-visibility: hidden; /* Esconde la parte de atrás cuando se gira */
+}
+
+.pokemon-card-front {
+background-color: white;
+}
+
+.pokemon-card-back {
+background-color: #f2f2f2;
+
+transform: rotateY(180deg); /* Gira la parte trasera */
+}
+
+.pokemon-card-back img{
+width: 100%; 
+height: 100%;
+object-fit: contain;
+
+
+}
+
+.pokemon-card img {
+width: 90%;
+}
+
+
+
+.pokemon-card h2 {
+    font-size: 16px;
+}
+
+
+button {
+border: none;
+border-radius:7%;
+padding: 10px;
+background-color: blue;
+color: white;
+font-weight: bold;
+margin: 20px;
+}
+
+input {
+margin: 5px;
+}
+
+.tipo {
+border-radius: 5px;
+padding: 3px;
+color: white;
+}

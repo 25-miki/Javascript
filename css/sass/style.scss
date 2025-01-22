@@ -1,0 +1,48 @@
+$primary_color: blue;
+$secondary_color: darkblue;
+$font_color: white;
+
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+nav {
+  background-color: $primary_color;
+  overflow: hidden;
+  margin: 0;
+}
+
+nav a {
+  color: $font_color;
+  padding: 14px 20px;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li:hover {
+  background-color: $secondary_color;
+}
+
+nav ul li ul {
+  display: none;
+  position: absolute;
+  background-color: $primary_color;
+}
+
+nav ul li:hover > ul {
+  display: block;
+}
+
+nav ul li ul li a {
+  padding: 10px 20px;
+}

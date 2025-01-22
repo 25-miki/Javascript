@@ -1,0 +1,22 @@
+#tablero {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr); 
+    grid-template-rows: repeat(20, 1fr); 
+    width: 100vmin; /* vmin equivale al viweport, 1vmin es el 1% del tamaño total*/
+    height: 100vmin; 
+    gap: 1px; 
+  }
+  
+  #tablero > div {
+    background-color: randomColor();
+    width: 100%;
+    height: 100%;
+  }
+  
+  @function randomColor() {
+    $r: random(255);
+    $g: random(255);
+    $b: random(255);
+    @return rgb(#{$r}, #{$g}, #{$b});
+  }
+  

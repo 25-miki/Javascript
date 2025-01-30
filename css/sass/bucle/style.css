@@ -1,0 +1,1610 @@
+#tablero {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  grid-template-rows: repeat(20, 1fr);
+  width: 100vmin;
+  height: 100vmin;
+  gap: 1px;
+}
+
+#tablero > div:nth-child(1) {
+  background-color: rgb(77, 98, 219);
+}
+
+#tablero > div:nth-child(2) {
+  background-color: rgb(90, 45, 61);
+}
+
+#tablero > div:nth-child(3) {
+  background-color: rgb(197, 54, 66);
+}
+
+#tablero > div:nth-child(4) {
+  background-color: rgb(198, 195, 219);
+}
+
+#tablero > div:nth-child(5) {
+  background-color: rgb(201, 45, 168);
+}
+
+#tablero > div:nth-child(6) {
+  background-color: rgb(218, 223, 44);
+}
+
+#tablero > div:nth-child(7) {
+  background-color: rgb(36, 2, 214);
+}
+
+#tablero > div:nth-child(8) {
+  background-color: rgb(249, 238, 99);
+}
+
+#tablero > div:nth-child(9) {
+  background-color: rgb(218, 16, 143);
+}
+
+#tablero > div:nth-child(10) {
+  background-color: rgb(76, 39, 81);
+}
+
+#tablero > div:nth-child(11) {
+  background-color: rgb(132, 186, 22);
+}
+
+#tablero > div:nth-child(12) {
+  background-color: rgb(122, 204, 142);
+}
+
+#tablero > div:nth-child(13) {
+  background-color: rgb(190, 4, 238);
+}
+
+#tablero > div:nth-child(14) {
+  background-color: rgb(144, 70, 6);
+}
+
+#tablero > div:nth-child(15) {
+  background-color: rgb(165, 179, 123);
+}
+
+#tablero > div:nth-child(16) {
+  background-color: rgb(168, 215, 51);
+}
+
+#tablero > div:nth-child(17) {
+  background-color: rgb(59, 21, 129);
+}
+
+#tablero > div:nth-child(18) {
+  background-color: rgb(87, 255, 172);
+}
+
+#tablero > div:nth-child(19) {
+  background-color: rgb(71, 55, 211);
+}
+
+#tablero > div:nth-child(20) {
+  background-color: rgb(155, 201, 136);
+}
+
+#tablero > div:nth-child(21) {
+  background-color: rgb(171, 110, 197);
+}
+
+#tablero > div:nth-child(22) {
+  background-color: rgb(112, 214, 161);
+}
+
+#tablero > div:nth-child(23) {
+  background-color: rgb(59, 60, 208);
+}
+
+#tablero > div:nth-child(24) {
+  background-color: rgb(7, 75, 248);
+}
+
+#tablero > div:nth-child(25) {
+  background-color: rgb(133, 85, 72);
+}
+
+#tablero > div:nth-child(26) {
+  background-color: rgb(134, 185, 151);
+}
+
+#tablero > div:nth-child(27) {
+  background-color: rgb(6, 202, 203);
+}
+
+#tablero > div:nth-child(28) {
+  background-color: rgb(44, 95, 93);
+}
+
+#tablero > div:nth-child(29) {
+  background-color: rgb(135, 115, 195);
+}
+
+#tablero > div:nth-child(30) {
+  background-color: rgb(60, 70, 39);
+}
+
+#tablero > div:nth-child(31) {
+  background-color: rgb(134, 102, 93);
+}
+
+#tablero > div:nth-child(32) {
+  background-color: rgb(187, 7, 144);
+}
+
+#tablero > div:nth-child(33) {
+  background-color: rgb(212, 56, 174);
+}
+
+#tablero > div:nth-child(34) {
+  background-color: rgb(75, 207, 4);
+}
+
+#tablero > div:nth-child(35) {
+  background-color: rgb(28, 224, 164);
+}
+
+#tablero > div:nth-child(36) {
+  background-color: rgb(180, 172, 74);
+}
+
+#tablero > div:nth-child(37) {
+  background-color: rgb(185, 98, 71);
+}
+
+#tablero > div:nth-child(38) {
+  background-color: rgb(70, 96, 159);
+}
+
+#tablero > div:nth-child(39) {
+  background-color: rgb(73, 15, 100);
+}
+
+#tablero > div:nth-child(40) {
+  background-color: rgb(129, 176, 78);
+}
+
+#tablero > div:nth-child(41) {
+  background-color: rgb(249, 110, 121);
+}
+
+#tablero > div:nth-child(42) {
+  background-color: rgb(27, 75, 255);
+}
+
+#tablero > div:nth-child(43) {
+  background-color: rgb(120, 87, 166);
+}
+
+#tablero > div:nth-child(44) {
+  background-color: rgb(179, 159, 205);
+}
+
+#tablero > div:nth-child(45) {
+  background-color: rgb(45, 38, 139);
+}
+
+#tablero > div:nth-child(46) {
+  background-color: rgb(61, 23, 207);
+}
+
+#tablero > div:nth-child(47) {
+  background-color: rgb(235, 188, 168);
+}
+
+#tablero > div:nth-child(48) {
+  background-color: rgb(126, 161, 115);
+}
+
+#tablero > div:nth-child(49) {
+  background-color: rgb(234, 147, 164);
+}
+
+#tablero > div:nth-child(50) {
+  background-color: rgb(95, 224, 255);
+}
+
+#tablero > div:nth-child(51) {
+  background-color: rgb(29, 232, 119);
+}
+
+#tablero > div:nth-child(52) {
+  background-color: rgb(179, 55, 78);
+}
+
+#tablero > div:nth-child(53) {
+  background-color: rgb(120, 249, 226);
+}
+
+#tablero > div:nth-child(54) {
+  background-color: rgb(17, 96, 194);
+}
+
+#tablero > div:nth-child(55) {
+  background-color: rgb(233, 56, 14);
+}
+
+#tablero > div:nth-child(56) {
+  background-color: rgb(72, 181, 139);
+}
+
+#tablero > div:nth-child(57) {
+  background-color: rgb(57, 71, 58);
+}
+
+#tablero > div:nth-child(58) {
+  background-color: rgb(111, 129, 66);
+}
+
+#tablero > div:nth-child(59) {
+  background-color: rgb(110, 78, 224);
+}
+
+#tablero > div:nth-child(60) {
+  background-color: rgb(46, 68, 169);
+}
+
+#tablero > div:nth-child(61) {
+  background-color: rgb(212, 199, 184);
+}
+
+#tablero > div:nth-child(62) {
+  background-color: rgb(200, 21, 9);
+}
+
+#tablero > div:nth-child(63) {
+  background-color: rgb(132, 158, 201);
+}
+
+#tablero > div:nth-child(64) {
+  background-color: rgb(160, 203, 80);
+}
+
+#tablero > div:nth-child(65) {
+  background-color: rgb(82, 77, 171);
+}
+
+#tablero > div:nth-child(66) {
+  background-color: rgb(43, 194, 96);
+}
+
+#tablero > div:nth-child(67) {
+  background-color: rgb(167, 62, 173);
+}
+
+#tablero > div:nth-child(68) {
+  background-color: rgb(10, 75, 114);
+}
+
+#tablero > div:nth-child(69) {
+  background-color: rgb(202, 186, 108);
+}
+
+#tablero > div:nth-child(70) {
+  background-color: rgb(14, 71, 189);
+}
+
+#tablero > div:nth-child(71) {
+  background-color: rgb(12, 210, 243);
+}
+
+#tablero > div:nth-child(72) {
+  background-color: rgb(237, 155, 77);
+}
+
+#tablero > div:nth-child(73) {
+  background-color: rgb(179, 82, 219);
+}
+
+#tablero > div:nth-child(74) {
+  background-color: rgb(143, 107, 155);
+}
+
+#tablero > div:nth-child(75) {
+  background-color: rgb(101, 180, 209);
+}
+
+#tablero > div:nth-child(76) {
+  background-color: rgb(104, 53, 33);
+}
+
+#tablero > div:nth-child(77) {
+  background-color: rgb(105, 27, 86);
+}
+
+#tablero > div:nth-child(78) {
+  background-color: rgb(143, 47, 218);
+}
+
+#tablero > div:nth-child(79) {
+  background-color: rgb(99, 69, 182);
+}
+
+#tablero > div:nth-child(80) {
+  background-color: rgb(123, 148, 39);
+}
+
+#tablero > div:nth-child(81) {
+  background-color: rgb(127, 143, 48);
+}
+
+#tablero > div:nth-child(82) {
+  background-color: rgb(238, 203, 92);
+}
+
+#tablero > div:nth-child(83) {
+  background-color: rgb(207, 36, 68);
+}
+
+#tablero > div:nth-child(84) {
+  background-color: rgb(10, 83, 101);
+}
+
+#tablero > div:nth-child(85) {
+  background-color: rgb(146, 120, 122);
+}
+
+#tablero > div:nth-child(86) {
+  background-color: rgb(150, 57, 37);
+}
+
+#tablero > div:nth-child(87) {
+  background-color: rgb(167, 228, 12);
+}
+
+#tablero > div:nth-child(88) {
+  background-color: rgb(224, 70, 86);
+}
+
+#tablero > div:nth-child(89) {
+  background-color: rgb(60, 29, 101);
+}
+
+#tablero > div:nth-child(90) {
+  background-color: rgb(58, 134, 4);
+}
+
+#tablero > div:nth-child(91) {
+  background-color: rgb(118, 248, 83);
+}
+
+#tablero > div:nth-child(92) {
+  background-color: rgb(63, 138, 87);
+}
+
+#tablero > div:nth-child(93) {
+  background-color: rgb(233, 40, 59);
+}
+
+#tablero > div:nth-child(94) {
+  background-color: rgb(155, 48, 240);
+}
+
+#tablero > div:nth-child(95) {
+  background-color: rgb(139, 49, 55);
+}
+
+#tablero > div:nth-child(96) {
+  background-color: rgb(239, 126, 136);
+}
+
+#tablero > div:nth-child(97) {
+  background-color: rgb(23, 151, 146);
+}
+
+#tablero > div:nth-child(98) {
+  background-color: rgb(7, 28, 1);
+}
+
+#tablero > div:nth-child(99) {
+  background-color: rgb(182, 111, 7);
+}
+
+#tablero > div:nth-child(100) {
+  background-color: rgb(198, 195, 140);
+}
+
+#tablero > div:nth-child(101) {
+  background-color: rgb(69, 111, 142);
+}
+
+#tablero > div:nth-child(102) {
+  background-color: rgb(192, 223, 209);
+}
+
+#tablero > div:nth-child(103) {
+  background-color: rgb(132, 77, 66);
+}
+
+#tablero > div:nth-child(104) {
+  background-color: rgb(68, 143, 31);
+}
+
+#tablero > div:nth-child(105) {
+  background-color: rgb(14, 255, 167);
+}
+
+#tablero > div:nth-child(106) {
+  background-color: rgb(78, 69, 21);
+}
+
+#tablero > div:nth-child(107) {
+  background-color: rgb(168, 96, 40);
+}
+
+#tablero > div:nth-child(108) {
+  background-color: rgb(11, 149, 158);
+}
+
+#tablero > div:nth-child(109) {
+  background-color: rgb(28, 220, 89);
+}
+
+#tablero > div:nth-child(110) {
+  background-color: rgb(176, 109, 128);
+}
+
+#tablero > div:nth-child(111) {
+  background-color: rgb(66, 63, 118);
+}
+
+#tablero > div:nth-child(112) {
+  background-color: rgb(220, 132, 146);
+}
+
+#tablero > div:nth-child(113) {
+  background-color: rgb(170, 38, 80);
+}
+
+#tablero > div:nth-child(114) {
+  background-color: rgb(91, 158, 138);
+}
+
+#tablero > div:nth-child(115) {
+  background-color: rgb(140, 232, 83);
+}
+
+#tablero > div:nth-child(116) {
+  background-color: rgb(108, 9, 45);
+}
+
+#tablero > div:nth-child(117) {
+  background-color: rgb(86, 78, 141);
+}
+
+#tablero > div:nth-child(118) {
+  background-color: rgb(99, 173, 192);
+}
+
+#tablero > div:nth-child(119) {
+  background-color: rgb(61, 181, 213);
+}
+
+#tablero > div:nth-child(120) {
+  background-color: rgb(240, 84, 60);
+}
+
+#tablero > div:nth-child(121) {
+  background-color: rgb(215, 252, 235);
+}
+
+#tablero > div:nth-child(122) {
+  background-color: rgb(52, 61, 243);
+}
+
+#tablero > div:nth-child(123) {
+  background-color: rgb(226, 66, 10);
+}
+
+#tablero > div:nth-child(124) {
+  background-color: rgb(85, 146, 119);
+}
+
+#tablero > div:nth-child(125) {
+  background-color: rgb(58, 145, 83);
+}
+
+#tablero > div:nth-child(126) {
+  background-color: rgb(225, 5, 4);
+}
+
+#tablero > div:nth-child(127) {
+  background-color: rgb(161, 31, 51);
+}
+
+#tablero > div:nth-child(128) {
+  background-color: rgb(70, 163, 139);
+}
+
+#tablero > div:nth-child(129) {
+  background-color: rgb(191, 211, 155);
+}
+
+#tablero > div:nth-child(130) {
+  background-color: rgb(113, 243, 86);
+}
+
+#tablero > div:nth-child(131) {
+  background-color: rgb(53, 170, 101);
+}
+
+#tablero > div:nth-child(132) {
+  background-color: rgb(155, 175, 174);
+}
+
+#tablero > div:nth-child(133) {
+  background-color: rgb(247, 253, 19);
+}
+
+#tablero > div:nth-child(134) {
+  background-color: rgb(191, 54, 5);
+}
+
+#tablero > div:nth-child(135) {
+  background-color: rgb(184, 249, 52);
+}
+
+#tablero > div:nth-child(136) {
+  background-color: rgb(58, 43, 82);
+}
+
+#tablero > div:nth-child(137) {
+  background-color: rgb(182, 202, 11);
+}
+
+#tablero > div:nth-child(138) {
+  background-color: rgb(233, 39, 102);
+}
+
+#tablero > div:nth-child(139) {
+  background-color: rgb(138, 213, 44);
+}
+
+#tablero > div:nth-child(140) {
+  background-color: rgb(22, 73, 88);
+}
+
+#tablero > div:nth-child(141) {
+  background-color: rgb(22, 208, 137);
+}
+
+#tablero > div:nth-child(142) {
+  background-color: rgb(218, 41, 46);
+}
+
+#tablero > div:nth-child(143) {
+  background-color: rgb(235, 56, 90);
+}
+
+#tablero > div:nth-child(144) {
+  background-color: rgb(167, 248, 152);
+}
+
+#tablero > div:nth-child(145) {
+  background-color: rgb(214, 105, 108);
+}
+
+#tablero > div:nth-child(146) {
+  background-color: rgb(194, 189, 199);
+}
+
+#tablero > div:nth-child(147) {
+  background-color: rgb(104, 59, 184);
+}
+
+#tablero > div:nth-child(148) {
+  background-color: rgb(213, 129, 182);
+}
+
+#tablero > div:nth-child(149) {
+  background-color: rgb(184, 84, 239);
+}
+
+#tablero > div:nth-child(150) {
+  background-color: rgb(152, 211, 150);
+}
+
+#tablero > div:nth-child(151) {
+  background-color: rgb(230, 57, 124);
+}
+
+#tablero > div:nth-child(152) {
+  background-color: rgb(175, 54, 92);
+}
+
+#tablero > div:nth-child(153) {
+  background-color: rgb(57, 122, 240);
+}
+
+#tablero > div:nth-child(154) {
+  background-color: rgb(19, 36, 79);
+}
+
+#tablero > div:nth-child(155) {
+  background-color: rgb(100, 153, 255);
+}
+
+#tablero > div:nth-child(156) {
+  background-color: rgb(111, 94, 46);
+}
+
+#tablero > div:nth-child(157) {
+  background-color: rgb(87, 101, 235);
+}
+
+#tablero > div:nth-child(158) {
+  background-color: rgb(63, 21, 115);
+}
+
+#tablero > div:nth-child(159) {
+  background-color: rgb(96, 80, 165);
+}
+
+#tablero > div:nth-child(160) {
+  background-color: rgb(15, 9, 151);
+}
+
+#tablero > div:nth-child(161) {
+  background-color: rgb(186, 211, 97);
+}
+
+#tablero > div:nth-child(162) {
+  background-color: rgb(60, 77, 68);
+}
+
+#tablero > div:nth-child(163) {
+  background-color: rgb(121, 98, 91);
+}
+
+#tablero > div:nth-child(164) {
+  background-color: rgb(199, 182, 201);
+}
+
+#tablero > div:nth-child(165) {
+  background-color: rgb(101, 213, 84);
+}
+
+#tablero > div:nth-child(166) {
+  background-color: rgb(1, 78, 91);
+}
+
+#tablero > div:nth-child(167) {
+  background-color: rgb(66, 131, 200);
+}
+
+#tablero > div:nth-child(168) {
+  background-color: rgb(233, 149, 144);
+}
+
+#tablero > div:nth-child(169) {
+  background-color: rgb(136, 26, 97);
+}
+
+#tablero > div:nth-child(170) {
+  background-color: rgb(52, 63, 153);
+}
+
+#tablero > div:nth-child(171) {
+  background-color: rgb(182, 130, 64);
+}
+
+#tablero > div:nth-child(172) {
+  background-color: rgb(97, 99, 234);
+}
+
+#tablero > div:nth-child(173) {
+  background-color: rgb(1, 146, 125);
+}
+
+#tablero > div:nth-child(174) {
+  background-color: rgb(88, 103, 46);
+}
+
+#tablero > div:nth-child(175) {
+  background-color: rgb(189, 152, 53);
+}
+
+#tablero > div:nth-child(176) {
+  background-color: rgb(60, 160, 127);
+}
+
+#tablero > div:nth-child(177) {
+  background-color: rgb(83, 93, 89);
+}
+
+#tablero > div:nth-child(178) {
+  background-color: rgb(167, 254, 64);
+}
+
+#tablero > div:nth-child(179) {
+  background-color: rgb(247, 81, 55);
+}
+
+#tablero > div:nth-child(180) {
+  background-color: rgb(177, 176, 56);
+}
+
+#tablero > div:nth-child(181) {
+  background-color: rgb(237, 140, 42);
+}
+
+#tablero > div:nth-child(182) {
+  background-color: rgb(9, 231, 45);
+}
+
+#tablero > div:nth-child(183) {
+  background-color: rgb(181, 196, 76);
+}
+
+#tablero > div:nth-child(184) {
+  background-color: rgb(102, 69, 46);
+}
+
+#tablero > div:nth-child(185) {
+  background-color: rgb(249, 209, 108);
+}
+
+#tablero > div:nth-child(186) {
+  background-color: rgb(41, 120, 180);
+}
+
+#tablero > div:nth-child(187) {
+  background-color: rgb(108, 47, 106);
+}
+
+#tablero > div:nth-child(188) {
+  background-color: rgb(45, 233, 51);
+}
+
+#tablero > div:nth-child(189) {
+  background-color: rgb(106, 164, 201);
+}
+
+#tablero > div:nth-child(190) {
+  background-color: rgb(217, 205, 101);
+}
+
+#tablero > div:nth-child(191) {
+  background-color: rgb(95, 237, 112);
+}
+
+#tablero > div:nth-child(192) {
+  background-color: rgb(89, 177, 113);
+}
+
+#tablero > div:nth-child(193) {
+  background-color: rgb(124, 249, 150);
+}
+
+#tablero > div:nth-child(194) {
+  background-color: rgb(131, 130, 42);
+}
+
+#tablero > div:nth-child(195) {
+  background-color: rgb(243, 229, 179);
+}
+
+#tablero > div:nth-child(196) {
+  background-color: rgb(96, 216, 150);
+}
+
+#tablero > div:nth-child(197) {
+  background-color: rgb(126, 145, 238);
+}
+
+#tablero > div:nth-child(198) {
+  background-color: rgb(68, 159, 189);
+}
+
+#tablero > div:nth-child(199) {
+  background-color: rgb(242, 191, 28);
+}
+
+#tablero > div:nth-child(200) {
+  background-color: rgb(46, 129, 123);
+}
+
+#tablero > div:nth-child(201) {
+  background-color: rgb(107, 191, 1);
+}
+
+#tablero > div:nth-child(202) {
+  background-color: rgb(242, 88, 71);
+}
+
+#tablero > div:nth-child(203) {
+  background-color: rgb(242, 203, 93);
+}
+
+#tablero > div:nth-child(204) {
+  background-color: rgb(235, 17, 236);
+}
+
+#tablero > div:nth-child(205) {
+  background-color: rgb(94, 150, 178);
+}
+
+#tablero > div:nth-child(206) {
+  background-color: rgb(192, 2, 41);
+}
+
+#tablero > div:nth-child(207) {
+  background-color: rgb(255, 205, 251);
+}
+
+#tablero > div:nth-child(208) {
+  background-color: rgb(193, 58, 3);
+}
+
+#tablero > div:nth-child(209) {
+  background-color: rgb(168, 142, 225);
+}
+
+#tablero > div:nth-child(210) {
+  background-color: rgb(140, 28, 197);
+}
+
+#tablero > div:nth-child(211) {
+  background-color: rgb(151, 171, 114);
+}
+
+#tablero > div:nth-child(212) {
+  background-color: rgb(131, 84, 253);
+}
+
+#tablero > div:nth-child(213) {
+  background-color: rgb(50, 68, 153);
+}
+
+#tablero > div:nth-child(214) {
+  background-color: rgb(219, 122, 131);
+}
+
+#tablero > div:nth-child(215) {
+  background-color: rgb(86, 94, 161);
+}
+
+#tablero > div:nth-child(216) {
+  background-color: rgb(10, 223, 45);
+}
+
+#tablero > div:nth-child(217) {
+  background-color: rgb(212, 83, 195);
+}
+
+#tablero > div:nth-child(218) {
+  background-color: rgb(223, 102, 189);
+}
+
+#tablero > div:nth-child(219) {
+  background-color: rgb(238, 38, 16);
+}
+
+#tablero > div:nth-child(220) {
+  background-color: rgb(132, 171, 253);
+}
+
+#tablero > div:nth-child(221) {
+  background-color: rgb(6, 6, 6);
+}
+
+#tablero > div:nth-child(222) {
+  background-color: rgb(21, 79, 239);
+}
+
+#tablero > div:nth-child(223) {
+  background-color: rgb(227, 1, 233);
+}
+
+#tablero > div:nth-child(224) {
+  background-color: rgb(119, 149, 62);
+}
+
+#tablero > div:nth-child(225) {
+  background-color: rgb(104, 155, 65);
+}
+
+#tablero > div:nth-child(226) {
+  background-color: rgb(237, 118, 228);
+}
+
+#tablero > div:nth-child(227) {
+  background-color: rgb(31, 211, 124);
+}
+
+#tablero > div:nth-child(228) {
+  background-color: rgb(32, 190, 141);
+}
+
+#tablero > div:nth-child(229) {
+  background-color: rgb(186, 115, 206);
+}
+
+#tablero > div:nth-child(230) {
+  background-color: rgb(81, 182, 235);
+}
+
+#tablero > div:nth-child(231) {
+  background-color: rgb(51, 72, 79);
+}
+
+#tablero > div:nth-child(232) {
+  background-color: rgb(155, 103, 95);
+}
+
+#tablero > div:nth-child(233) {
+  background-color: rgb(128, 30, 99);
+}
+
+#tablero > div:nth-child(234) {
+  background-color: rgb(130, 148, 9);
+}
+
+#tablero > div:nth-child(235) {
+  background-color: rgb(112, 214, 244);
+}
+
+#tablero > div:nth-child(236) {
+  background-color: rgb(159, 125, 37);
+}
+
+#tablero > div:nth-child(237) {
+  background-color: rgb(14, 85, 64);
+}
+
+#tablero > div:nth-child(238) {
+  background-color: rgb(123, 130, 251);
+}
+
+#tablero > div:nth-child(239) {
+  background-color: rgb(4, 255, 53);
+}
+
+#tablero > div:nth-child(240) {
+  background-color: rgb(34, 19, 124);
+}
+
+#tablero > div:nth-child(241) {
+  background-color: rgb(166, 240, 236);
+}
+
+#tablero > div:nth-child(242) {
+  background-color: rgb(251, 93, 175);
+}
+
+#tablero > div:nth-child(243) {
+  background-color: rgb(155, 202, 171);
+}
+
+#tablero > div:nth-child(244) {
+  background-color: rgb(50, 66, 147);
+}
+
+#tablero > div:nth-child(245) {
+  background-color: rgb(153, 84, 175);
+}
+
+#tablero > div:nth-child(246) {
+  background-color: rgb(184, 123, 5);
+}
+
+#tablero > div:nth-child(247) {
+  background-color: rgb(117, 20, 145);
+}
+
+#tablero > div:nth-child(248) {
+  background-color: rgb(158, 57, 159);
+}
+
+#tablero > div:nth-child(249) {
+  background-color: rgb(208, 86, 127);
+}
+
+#tablero > div:nth-child(250) {
+  background-color: rgb(187, 242, 135);
+}
+
+#tablero > div:nth-child(251) {
+  background-color: rgb(34, 38, 110);
+}
+
+#tablero > div:nth-child(252) {
+  background-color: rgb(27, 163, 168);
+}
+
+#tablero > div:nth-child(253) {
+  background-color: rgb(168, 81, 185);
+}
+
+#tablero > div:nth-child(254) {
+  background-color: rgb(133, 77, 91);
+}
+
+#tablero > div:nth-child(255) {
+  background-color: rgb(96, 95, 97);
+}
+
+#tablero > div:nth-child(256) {
+  background-color: rgb(29, 180, 237);
+}
+
+#tablero > div:nth-child(257) {
+  background-color: rgb(197, 231, 152);
+}
+
+#tablero > div:nth-child(258) {
+  background-color: rgb(219, 48, 241);
+}
+
+#tablero > div:nth-child(259) {
+  background-color: rgb(151, 49, 157);
+}
+
+#tablero > div:nth-child(260) {
+  background-color: rgb(184, 248, 246);
+}
+
+#tablero > div:nth-child(261) {
+  background-color: rgb(127, 114, 32);
+}
+
+#tablero > div:nth-child(262) {
+  background-color: rgb(182, 254, 15);
+}
+
+#tablero > div:nth-child(263) {
+  background-color: rgb(238, 64, 178);
+}
+
+#tablero > div:nth-child(264) {
+  background-color: rgb(128, 57, 250);
+}
+
+#tablero > div:nth-child(265) {
+  background-color: rgb(240, 138, 89);
+}
+
+#tablero > div:nth-child(266) {
+  background-color: rgb(48, 52, 213);
+}
+
+#tablero > div:nth-child(267) {
+  background-color: rgb(120, 72, 29);
+}
+
+#tablero > div:nth-child(268) {
+  background-color: rgb(16, 58, 166);
+}
+
+#tablero > div:nth-child(269) {
+  background-color: rgb(48, 164, 122);
+}
+
+#tablero > div:nth-child(270) {
+  background-color: rgb(243, 104, 139);
+}
+
+#tablero > div:nth-child(271) {
+  background-color: rgb(145, 32, 3);
+}
+
+#tablero > div:nth-child(272) {
+  background-color: rgb(200, 113, 234);
+}
+
+#tablero > div:nth-child(273) {
+  background-color: rgb(17, 46, 60);
+}
+
+#tablero > div:nth-child(274) {
+  background-color: rgb(163, 112, 155);
+}
+
+#tablero > div:nth-child(275) {
+  background-color: rgb(40, 128, 97);
+}
+
+#tablero > div:nth-child(276) {
+  background-color: rgb(91, 199, 88);
+}
+
+#tablero > div:nth-child(277) {
+  background-color: rgb(170, 244, 238);
+}
+
+#tablero > div:nth-child(278) {
+  background-color: rgb(188, 46, 40);
+}
+
+#tablero > div:nth-child(279) {
+  background-color: rgb(14, 163, 169);
+}
+
+#tablero > div:nth-child(280) {
+  background-color: rgb(152, 29, 118);
+}
+
+#tablero > div:nth-child(281) {
+  background-color: rgb(204, 235, 7);
+}
+
+#tablero > div:nth-child(282) {
+  background-color: rgb(54, 168, 85);
+}
+
+#tablero > div:nth-child(283) {
+  background-color: rgb(196, 246, 201);
+}
+
+#tablero > div:nth-child(284) {
+  background-color: rgb(131, 245, 189);
+}
+
+#tablero > div:nth-child(285) {
+  background-color: rgb(235, 70, 53);
+}
+
+#tablero > div:nth-child(286) {
+  background-color: rgb(16, 187, 5);
+}
+
+#tablero > div:nth-child(287) {
+  background-color: rgb(192, 33, 83);
+}
+
+#tablero > div:nth-child(288) {
+  background-color: rgb(122, 146, 14);
+}
+
+#tablero > div:nth-child(289) {
+  background-color: rgb(120, 27, 167);
+}
+
+#tablero > div:nth-child(290) {
+  background-color: rgb(224, 77, 193);
+}
+
+#tablero > div:nth-child(291) {
+  background-color: rgb(249, 173, 3);
+}
+
+#tablero > div:nth-child(292) {
+  background-color: rgb(140, 151, 162);
+}
+
+#tablero > div:nth-child(293) {
+  background-color: rgb(210, 16, 91);
+}
+
+#tablero > div:nth-child(294) {
+  background-color: rgb(145, 146, 100);
+}
+
+#tablero > div:nth-child(295) {
+  background-color: rgb(96, 115, 250);
+}
+
+#tablero > div:nth-child(296) {
+  background-color: rgb(1, 168, 171);
+}
+
+#tablero > div:nth-child(297) {
+  background-color: rgb(177, 186, 47);
+}
+
+#tablero > div:nth-child(298) {
+  background-color: rgb(77, 30, 157);
+}
+
+#tablero > div:nth-child(299) {
+  background-color: rgb(119, 69, 195);
+}
+
+#tablero > div:nth-child(300) {
+  background-color: rgb(165, 243, 251);
+}
+
+#tablero > div:nth-child(301) {
+  background-color: rgb(8, 163, 53);
+}
+
+#tablero > div:nth-child(302) {
+  background-color: rgb(252, 115, 102);
+}
+
+#tablero > div:nth-child(303) {
+  background-color: rgb(242, 212, 54);
+}
+
+#tablero > div:nth-child(304) {
+  background-color: rgb(50, 146, 69);
+}
+
+#tablero > div:nth-child(305) {
+  background-color: rgb(178, 181, 171);
+}
+
+#tablero > div:nth-child(306) {
+  background-color: rgb(171, 241, 9);
+}
+
+#tablero > div:nth-child(307) {
+  background-color: rgb(196, 53, 80);
+}
+
+#tablero > div:nth-child(308) {
+  background-color: rgb(17, 158, 137);
+}
+
+#tablero > div:nth-child(309) {
+  background-color: rgb(16, 254, 165);
+}
+
+#tablero > div:nth-child(310) {
+  background-color: rgb(63, 9, 87);
+}
+
+#tablero > div:nth-child(311) {
+  background-color: rgb(206, 167, 83);
+}
+
+#tablero > div:nth-child(312) {
+  background-color: rgb(37, 183, 15);
+}
+
+#tablero > div:nth-child(313) {
+  background-color: rgb(237, 187, 41);
+}
+
+#tablero > div:nth-child(314) {
+  background-color: rgb(126, 177, 44);
+}
+
+#tablero > div:nth-child(315) {
+  background-color: rgb(57, 213, 120);
+}
+
+#tablero > div:nth-child(316) {
+  background-color: rgb(221, 215, 40);
+}
+
+#tablero > div:nth-child(317) {
+  background-color: rgb(215, 187, 133);
+}
+
+#tablero > div:nth-child(318) {
+  background-color: rgb(28, 217, 250);
+}
+
+#tablero > div:nth-child(319) {
+  background-color: rgb(183, 221, 203);
+}
+
+#tablero > div:nth-child(320) {
+  background-color: rgb(182, 96, 153);
+}
+
+#tablero > div:nth-child(321) {
+  background-color: rgb(194, 184, 194);
+}
+
+#tablero > div:nth-child(322) {
+  background-color: rgb(232, 78, 190);
+}
+
+#tablero > div:nth-child(323) {
+  background-color: rgb(4, 121, 48);
+}
+
+#tablero > div:nth-child(324) {
+  background-color: rgb(93, 218, 199);
+}
+
+#tablero > div:nth-child(325) {
+  background-color: rgb(114, 57, 66);
+}
+
+#tablero > div:nth-child(326) {
+  background-color: rgb(157, 180, 95);
+}
+
+#tablero > div:nth-child(327) {
+  background-color: rgb(137, 212, 164);
+}
+
+#tablero > div:nth-child(328) {
+  background-color: rgb(95, 192, 65);
+}
+
+#tablero > div:nth-child(329) {
+  background-color: rgb(97, 170, 111);
+}
+
+#tablero > div:nth-child(330) {
+  background-color: rgb(29, 238, 226);
+}
+
+#tablero > div:nth-child(331) {
+  background-color: rgb(68, 205, 118);
+}
+
+#tablero > div:nth-child(332) {
+  background-color: rgb(132, 28, 249);
+}
+
+#tablero > div:nth-child(333) {
+  background-color: rgb(242, 12, 199);
+}
+
+#tablero > div:nth-child(334) {
+  background-color: rgb(232, 50, 53);
+}
+
+#tablero > div:nth-child(335) {
+  background-color: rgb(97, 197, 132);
+}
+
+#tablero > div:nth-child(336) {
+  background-color: rgb(35, 86, 51);
+}
+
+#tablero > div:nth-child(337) {
+  background-color: rgb(157, 47, 220);
+}
+
+#tablero > div:nth-child(338) {
+  background-color: rgb(122, 163, 36);
+}
+
+#tablero > div:nth-child(339) {
+  background-color: rgb(116, 141, 50);
+}
+
+#tablero > div:nth-child(340) {
+  background-color: rgb(133, 29, 38);
+}
+
+#tablero > div:nth-child(341) {
+  background-color: rgb(181, 150, 198);
+}
+
+#tablero > div:nth-child(342) {
+  background-color: rgb(35, 46, 242);
+}
+
+#tablero > div:nth-child(343) {
+  background-color: rgb(30, 126, 217);
+}
+
+#tablero > div:nth-child(344) {
+  background-color: rgb(159, 164, 155);
+}
+
+#tablero > div:nth-child(345) {
+  background-color: rgb(158, 136, 234);
+}
+
+#tablero > div:nth-child(346) {
+  background-color: rgb(212, 162, 86);
+}
+
+#tablero > div:nth-child(347) {
+  background-color: rgb(186, 152, 251);
+}
+
+#tablero > div:nth-child(348) {
+  background-color: rgb(247, 91, 198);
+}
+
+#tablero > div:nth-child(349) {
+  background-color: rgb(197, 156, 129);
+}
+
+#tablero > div:nth-child(350) {
+  background-color: rgb(188, 123, 88);
+}
+
+#tablero > div:nth-child(351) {
+  background-color: rgb(31, 10, 144);
+}
+
+#tablero > div:nth-child(352) {
+  background-color: rgb(181, 237, 102);
+}
+
+#tablero > div:nth-child(353) {
+  background-color: rgb(81, 230, 105);
+}
+
+#tablero > div:nth-child(354) {
+  background-color: rgb(85, 59, 249);
+}
+
+#tablero > div:nth-child(355) {
+  background-color: rgb(45, 234, 12);
+}
+
+#tablero > div:nth-child(356) {
+  background-color: rgb(236, 119, 249);
+}
+
+#tablero > div:nth-child(357) {
+  background-color: rgb(93, 50, 156);
+}
+
+#tablero > div:nth-child(358) {
+  background-color: rgb(144, 205, 136);
+}
+
+#tablero > div:nth-child(359) {
+  background-color: rgb(77, 94, 20);
+}
+
+#tablero > div:nth-child(360) {
+  background-color: rgb(189, 179, 93);
+}
+
+#tablero > div:nth-child(361) {
+  background-color: rgb(107, 202, 254);
+}
+
+#tablero > div:nth-child(362) {
+  background-color: rgb(94, 242, 57);
+}
+
+#tablero > div:nth-child(363) {
+  background-color: rgb(13, 19, 166);
+}
+
+#tablero > div:nth-child(364) {
+  background-color: rgb(59, 87, 192);
+}
+
+#tablero > div:nth-child(365) {
+  background-color: rgb(142, 70, 56);
+}
+
+#tablero > div:nth-child(366) {
+  background-color: rgb(25, 130, 228);
+}
+
+#tablero > div:nth-child(367) {
+  background-color: rgb(190, 81, 45);
+}
+
+#tablero > div:nth-child(368) {
+  background-color: rgb(207, 80, 250);
+}
+
+#tablero > div:nth-child(369) {
+  background-color: rgb(11, 173, 93);
+}
+
+#tablero > div:nth-child(370) {
+  background-color: rgb(85, 11, 168);
+}
+
+#tablero > div:nth-child(371) {
+  background-color: rgb(187, 251, 234);
+}
+
+#tablero > div:nth-child(372) {
+  background-color: rgb(216, 204, 251);
+}
+
+#tablero > div:nth-child(373) {
+  background-color: rgb(201, 229, 1);
+}
+
+#tablero > div:nth-child(374) {
+  background-color: rgb(4, 7, 101);
+}
+
+#tablero > div:nth-child(375) {
+  background-color: rgb(29, 31, 188);
+}
+
+#tablero > div:nth-child(376) {
+  background-color: rgb(218, 189, 141);
+}
+
+#tablero > div:nth-child(377) {
+  background-color: rgb(157, 102, 216);
+}
+
+#tablero > div:nth-child(378) {
+  background-color: rgb(227, 174, 104);
+}
+
+#tablero > div:nth-child(379) {
+  background-color: rgb(152, 27, 20);
+}
+
+#tablero > div:nth-child(380) {
+  background-color: rgb(254, 43, 10);
+}
+
+#tablero > div:nth-child(381) {
+  background-color: rgb(111, 80, 162);
+}
+
+#tablero > div:nth-child(382) {
+  background-color: rgb(2, 240, 89);
+}
+
+#tablero > div:nth-child(383) {
+  background-color: rgb(66, 2, 88);
+}
+
+#tablero > div:nth-child(384) {
+  background-color: rgb(129, 141, 178);
+}
+
+#tablero > div:nth-child(385) {
+  background-color: rgb(198, 35, 17);
+}
+
+#tablero > div:nth-child(386) {
+  background-color: rgb(241, 131, 110);
+}
+
+#tablero > div:nth-child(387) {
+  background-color: rgb(237, 65, 49);
+}
+
+#tablero > div:nth-child(388) {
+  background-color: rgb(61, 222, 92);
+}
+
+#tablero > div:nth-child(389) {
+  background-color: rgb(155, 194, 2);
+}
+
+#tablero > div:nth-child(390) {
+  background-color: rgb(239, 135, 136);
+}
+
+#tablero > div:nth-child(391) {
+  background-color: rgb(2, 247, 37);
+}
+
+#tablero > div:nth-child(392) {
+  background-color: rgb(196, 205, 133);
+}
+
+#tablero > div:nth-child(393) {
+  background-color: rgb(233, 194, 246);
+}
+
+#tablero > div:nth-child(394) {
+  background-color: rgb(248, 206, 105);
+}
+
+#tablero > div:nth-child(395) {
+  background-color: rgb(90, 153, 105);
+}
+
+#tablero > div:nth-child(396) {
+  background-color: rgb(159, 152, 125);
+}
+
+#tablero > div:nth-child(397) {
+  background-color: rgb(231, 117, 175);
+}
+
+#tablero > div:nth-child(398) {
+  background-color: rgb(42, 249, 8);
+}
+
+#tablero > div:nth-child(399) {
+  background-color: rgb(235, 182, 242);
+}
+
+#tablero > div:nth-child(400) {
+  background-color: rgb(109, 89, 15);
+}
+
+/*# sourceMappingURL=style.css.map */

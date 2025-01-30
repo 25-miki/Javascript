@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario con AJAX</title>
+</head>
+<body>
+    <h2>Subir datos con AJAX</h2>
+    <form id="form">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" id="apellidos" name="apellidos" required><br><br>
+
+        <label for="avatar">Avatar (JPG o PNG):</label>
+        <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" required><br><br>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    <p id="mensaje"></p>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function(event) {
+            event.preventDefault(); 
+
+            let formData = new FormData(this); 
+            
+            fetch("index.php", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.json()) 
+            .then(data => {
+                let mensaje = document.getElementById("mensaje");
+                if (data.status === "ok") {
+                    mensaje.textContent = "Información guardada correctamente ✅";
+                } else {
+                    mensaje.textContent = "Error: " + data.error + " ❌";
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                document.getElementById("mensaje").textContent = "Error desconocido ❌";
+            });
+        });
+    </script>
+</body>
+</html>

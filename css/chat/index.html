@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat online</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="login-container">
+        <h2>Ingrese su nombre</h2>
+        <input type="text" id="username" placeholder="Nombre">
+        <button onclick="showOptions()">Continuar</button>
+    </div>
+
+    <div id="options-container" style="display: none;">
+        <h2>Seleccione una opción</h2>
+        <button onclick="createRoom()">Crear Sala</button>
+        <button onclick="showJoinRoom()">Unirse a Sala</button>
+    </div>
+
+    <div id="join-container">
+        <h2>Ingrese el Hash de la Sala</h2>
+        <input type="text" id="room-hash" placeholder="Hash de la Sala">
+        <button onclick="joinRoom()">Unirse</button>
+    </div>
+
+    <div id="chat-container">
+        <h2>Sala de Chat</h2>
+        <p><strong>Hash de la Sala:</strong> <span id="chatroom-hash"></span></p>
+        <div id="messages"></div>
+        <input type="text" id="message-input" placeholder="Escribe un mensaje...">
+        <button onclick="sendMessage()">Enviar</button>
+        <button onclick="leaveChat()">Salir</button>
+    </div>
+</body>
+</html>
+<script src="script.js"></script>

@@ -1,0 +1,22 @@
+body { 
+    font-family: Arial, sans-serif; 
+    text-align: center; 
+}
+#chat-container { 
+    display: none; 
+}
+#join-container { 
+    display: none; 
+}
+#messages { 
+    width: 80%; 
+    height: 300px; 
+    border: 1px solid #ccc; 
+    overflow-y: scroll; 
+    margin: auto; 
+    padding: 10px; 
+    text-align: left; 
+}
+input, button { 
+    margin: 5px; 
+    padding: 10px; }

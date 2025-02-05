@@ -1,0 +1,58 @@
+@font-face {
+    font-family: "Japanese_2020";
+    src: url(JAPANESE_2020.otf);
+}
+
+
+body {
+    font-family: "Japanese_2020", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url("8559794.jpg");
+    background-attachment: fixed;
+    background-size: cover;  /* Ajusta la imagen para que cubra toda la pantalla */
+    background-position: center;
+    color: white;
+    text-shadow: 
+        3px 3px 0px rgb(226, 73, 73),   /* Borde superior izquierdo */
+        -3px -3px 0px rgb(226, 73, 73), /* Borde inferior derecho */
+        3px -3px 0px rgb(226, 73, 73),  /* Borde superior derecho */
+        -3px 3px 0px rgb(226, 73, 73);  /* Borde inferior izquierdo */
+}
+  h1, h2 {
+    margin: 10px;
+  }
+  #game-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 20px 0;
+  }
+
+  #kanji-container, #word-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  button {
+    height: 65px;
+    padding: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    border: 1px solid #8bcafb;
+    background-color: #def1fc;
+    border-radius: 5px;
+    margin: 5px;
+    transition: background-color 0.2s;
+  }
+  button:hover {
+    background-color: #90d6ff;
+  }
+  #results {
+    margin-top: 20px;
+  }

@@ -8,7 +8,7 @@ let chatroomHash = milocalStorage.getItem('chatroomHash');
 let username = milocalStorage.getItem('username');
 let interval;
 
-function showOptions() {
+function showOptions() { 
     username = document.getElementById('username').value;
     if (!username) return alert('Por favor, ingrese un nombre.');
     localStorage.setItem('username', username);

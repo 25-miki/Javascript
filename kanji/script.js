@@ -248,239 +248,131 @@ const kanji_onyomi = [
     ["雨", "u"]
 ]
 
+class KanjiGame {
+    constructor(containerIds) {
+        this.kanjiContainer = document.getElementById(containerIds.kanji);
+        this.wordContainer = document.getElementById(containerIds.word);
+        this.errorDisplay = document.getElementById(containerIds.error);
+        this.timeDisplay = document.getElementById(containerIds.time);
 
-var kanjiPairs = kanji_meanings;
+        this.matchedPairs = 0;
+        this.errorCount = 0;
+        this.startTime = null;
+        this.currentSet = [];
+        this.selectedButtons = [];
+        this.kanjiPairs = kanji_meanings;
 
-const kanji_button = document.getElementById("kanji");
-kanji_button.addEventListener("click", () => {
-    kanjiPairs = kanji_meanings;
-    startGame();
-});
-
-const onyomi = document.getElementById("onyomi");
-onyomi.addEventListener("click", () => {
-    kanjiPairs = kanji_onyomi;
-    startGame();
-});
-
-const kunyomi = document.getElementById("kunyomi");
-kunyomi.addEventListener("click", () => {
-    kanjiPairs = kanji_kunyomi;
-    startGame();
-});
-
-
-// Recuperar las mejores puntuaciones
-let bestScores = JSON.parse(localStorage.getItem("bestScores")) || [];
-
-function begin() {
-    const mikiScore = { name: "Miki", score: 1000 };
-
-    // Asegurarse de que bestScores está inicializado
-    bestScores.push(mikiScore);
-
-    // Ordenar y guardar
-    bestScores = bestScores.sort((a, b) => b.score - a.score);
-    localStorage.setItem("bestScores", JSON.stringify(bestScores));
-
-    setRecords();
-
-    console.log("Se ha añadido la puntuación de miki!");
-}
-
-
-begin();
-
-
-// Variables de juego
-let currentSet = [];
-let selectedButtons = [];
-let matchedPairs = 0;
-let errorCount = 0;
-let startTime;
-
-// Referencias a los elementos DOM
-const kanjiContainer = document.getElementById('kanji-container');
-const wordContainer = document.getElementById('word-container');
-const errorDisplay = document.getElementById('error-count');
-const timeDisplay = document.getElementById('time-taken');
-
-// Función para iniciar el juego
-function startGame() {
-    matchedPairs = 0;
-    errorCount = 0;
-    errorDisplay.textContent = errorCount;
-
-    kanjiPairs.sort(() => Math.random() - 0.5); // Mezclar los pares
-    startTime = Date.now();
-    loadNextSet();
-}
-
-// Terminar el juego
-function endGame() {
-    const endTime = Date.now();
-    const timeTaken = Math.floor((endTime - startTime) / 1000);
-    const basePoints = 1000;
-    const timePenalty = timeTaken * 5;
-    const errorPenalty = errorCount * 20;
-    const finalScore = Math.max(0, basePoints - timePenalty - errorPenalty);
-
-    // Verificar si el puntaje merece estar en el top 10
-    const lowestScore = bestScores.length === 10 ? bestScores[9].score : 0;
-
-    if (finalScore > lowestScore || bestScores.length < 10) {
-        const playerName = prompt("Enter your name:") || "AAA";
-        const newScore = { name: playerName, score: finalScore };
-
-        // Insertar y reordenar
-        bestScores.push(newScore);
-        bestScores = bestScores
-            .sort((a, b) => b.score - a.score)
-            .slice(0, 10);
-
-        // Guardar en localStorage
-        localStorage.setItem('bestScores', JSON.stringify(bestScores));
+        this.bestScores = JSON.parse(localStorage.getItem("bestScores")) || [];
     }
 
-    setRecords(); // Actualizar el ranking
-
-    alert(`Game Over!\nTime: ${timeTaken} seconds\nErrors: ${errorCount}\nScore: ${finalScore}`);
-}
-
-// Actualizar los mejores puntajes en la tabla
-function setRecords() {
-    const recordsTableBody = document.querySelector("#records tbody");
-    recordsTableBody.innerHTML = "";
-
-    bestScores.forEach((entry, index) => {
-        const row = document.createElement("tr");
-
-        const rankCell = document.createElement("td");
-        rankCell.textContent = index + 1;
-
-        const nameCell = document.createElement("td");
-        nameCell.textContent = entry.name;
-
-        const scoreCell = document.createElement("td");
-        scoreCell.textContent = entry.score;
-
-        row.appendChild(rankCell);
-        row.appendChild(nameCell);
-        row.appendChild(scoreCell);
-
-        recordsTableBody.appendChild(row);
-    });
-}
-
-/* Botón para agregar puntajes de prueba
-const addMikiButton = document.getElementById("addMikiButton");
-addMikiButton.addEventListener("click", () => {
-    const mikiScore = { name: "Miki", score: 9999 };
-    bestScores.push(mikiScore);
-
-    // Ordenar y guardar
-    bestScores = bestScores.sort((a, b) => b.score - a.score);
-    localStorage.setItem("bestScores", JSON.stringify(bestScores));
-
-    setRecords(); // Actualizar la tabla
-
-    addMikiButton.style.display = "none";
-});
-
-*/
-
-// Cargar un nuevo conjunto de pares
-function loadNextSet() {
-    if (kanjiPairs.length === 0) {
-        endGame();
-        return;
+    startGame() {
+        this.matchedPairs = 0;
+        this.errorCount = 0;
+        this.errorDisplay.textContent = this.errorCount;
+        this.kanjiPairs.sort(() => Math.random() - 0.5);
+        this.startTime = Date.now();
+        this.loadNextSet();
     }
 
-    currentSet = kanjiPairs.splice(0, 5);
-    renderButtons();
-}
-
-// Mostrar botones de kanji y significado
-function renderButtons() {
-    kanjiContainer.innerHTML = '';
-    wordContainer.innerHTML = '';
-
-    const kanjis = currentSet.map(pair => pair[0]);
-    const meanings = currentSet.map(pair => pair[1]);
-
-    const shuffledKanji = shuffleArray(kanjis);
-    const shuffledMeanings = shuffleArray(meanings);
-
-    shuffledKanji.forEach(kanji => {
-        const button = document.createElement('button');
-        button.textContent = kanji;
-        button.dataset.value = kanji;
-        button.dataset.type = 'kanji';
-        button.addEventListener('click', handleButtonClick);
-        kanjiContainer.appendChild(button);
-    });
-
-    shuffledMeanings.forEach(meaning => {
-        const button = document.createElement('button');
-        button.textContent = meaning;
-        button.dataset.value = meaning;
-        button.dataset.type = 'meaning';
-        button.addEventListener('click', handleButtonClick);
-        wordContainer.appendChild(button);
-    });
-}
-
-// Manejar clic en botones
-function handleButtonClick(e) {
-    const button = e.target;
-    if (selectedButtons.includes(button)) return;
-
-    selectedButtons.push(button);
-    button.style.backgroundColor = '#d3f9d8';
-
-    if (selectedButtons.length === 2) {
-        checkMatch();
-    }
-}
-
-// Verificar si es un par correcto
-function checkMatch() {
-    const [btn1, btn2] = selectedButtons;
-    const isKanji = btn1.dataset.type === 'kanji';
-    const kanji = isKanji ? btn1.dataset.value : btn2.dataset.value;
-    const meaning = isKanji ? btn2.dataset.value : btn1.dataset.value;
-
-    const pairExists = currentSet.some(pair => pair[0] === kanji && pair[1] === meaning);
-
-    if (pairExists) {
-        matchedPairs++;
-        btn1.style.visibility = 'hidden';
-        btn2.style.visibility = 'hidden';
-
-        if (matchedPairs === 5) {
-            matchedPairs = 0;
-            loadNextSet();
+    loadNextSet() {
+        if (this.kanjiPairs.length === 0) {
+            this.endGame();
+            return;
         }
-    } else {
-        errorCount++;
-        errorDisplay.textContent = errorCount;
+
+        this.currentSet = this.kanjiPairs.splice(0, 5);
+        this.renderButtons();
     }
 
-    selectedButtons = [];
-    resetButtonStyles();
+    renderButtons() {
+        this.kanjiContainer.innerHTML = '';
+        this.wordContainer.innerHTML = '';
+
+        const kanjis = this.currentSet.map(pair => pair[0]);
+        const meanings = this.currentSet.map(pair => pair[1]);
+
+        const shuffledKanji = this.shuffleArray(kanjis);
+        const shuffledMeanings = this.shuffleArray(meanings);
+
+        shuffledKanji.forEach(kanji => this.createButton(kanji, 'kanji', this.kanjiContainer));
+        shuffledMeanings.forEach(meaning => this.createButton(meaning, 'meaning', this.wordContainer));
+    }
+
+    createButton(value, type, container) {
+        const button = document.createElement('button');
+        button.textContent = value;
+        button.dataset.value = value;
+        button.dataset.type = type;
+        button.addEventListener('click', e => this.handleButtonClick(e));
+        container.appendChild(button);
+    }
+
+    handleButtonClick(e) {
+        const button = e.target;
+        if (this.selectedButtons.includes(button)) return;
+
+        this.selectedButtons.push(button);
+        button.style.backgroundColor = '#d3f9d8';
+
+        if (this.selectedButtons.length === 2) {
+            this.checkMatch();
+        }
+    }
+
+    checkMatch() {
+        const [btn1, btn2] = this.selectedButtons;
+        const isKanji = btn1.dataset.type === 'kanji';
+        const kanji = isKanji ? btn1.dataset.value : btn2.dataset.value;
+        const meaning = isKanji ? btn2.dataset.value : btn1.dataset.value;
+
+        const pairExists = this.currentSet.some(pair => pair[0] === kanji && pair[1] === meaning);
+
+        if (pairExists) {
+            this.matchedPairs++;
+            btn1.style.visibility = 'hidden';
+            btn2.style.visibility = 'hidden';
+
+            if (this.matchedPairs === 5) {
+                this.matchedPairs = 0;
+                this.loadNextSet();
+            }
+        } else {
+            this.errorCount++;
+            this.errorDisplay.textContent = this.errorCount;
+        }
+
+        this.selectedButtons = [];
+        this.resetButtonStyles();
+    }
+
+    resetButtonStyles() {
+        document.querySelectorAll('button').forEach(button => {
+            button.style.backgroundColor = '#fff';
+        });
+    }
+
+    shuffleArray(array) {
+        return array.sort(() => Math.random() - 0.5);
+    }
+
+    endGame() {
+        const endTime = Date.now();
+        const timeTaken = Math.floor((endTime - this.startTime) / 1000);
+        const basePoints = 1000;
+        const timePenalty = timeTaken * 5;
+        const errorPenalty = this.errorCount * 20;
+        const finalScore = Math.max(0, basePoints - timePenalty - errorPenalty);
+
+        alert(`Game Over!\nTime: ${timeTaken} seconds\nErrors: ${this.errorCount}\nScore: ${finalScore}`);
+    }
 }
 
-// Restablecer estilo de botones
-function resetButtonStyles() {
-    document.querySelectorAll('button').forEach(button => {
-        button.style.backgroundColor = '#fff';
-    });
-}
+const game = new KanjiGame({
+    kanji: 'kanji-container',
+    word: 'word-container',
+    error: 'error-count',
+    time: 'time-taken'
+});
 
-// Mezclar un arreglo
-function shuffleArray(array) {
-    return array.sort(() => Math.random() - 0.5);
-}
+game.startGame();
 
-// Iniciar el juego
-startGame();

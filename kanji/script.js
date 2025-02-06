@@ -105,6 +105,8 @@ function startGame() {
     matchedPairs = 0;
     errorCount = 0;
     errorDisplay.textContent = errorCount;
+
+    //Coge la lista de kanjis y la desordena
     kanjiPairs.sort(() => Math.random() - 0.5); // Mezclar los pares
     startTime = Date.now();
     loadNextSet();
@@ -173,18 +175,22 @@ function loadNextSet() {
         endGame();
         return;
     }
+    //Va cortando la lista de kanjis de 5 en 5
     currentSet = kanjiPairs.splice(0, 5); // Obtener los siguientes 5 pares
     renderButtons();
 }
 
 // Renderizar los botones para los kanjis y significados
+
 function renderButtons() {
     kanjiContainer.innerHTML = '';
     wordContainer.innerHTML = '';
 
+    //Divide el array en dos
     const kanjis = currentSet.map(pair => pair[0]);
     const meanings = currentSet.map(pair => pair[1]);
 
+    //Desordena los nuevos arrays
     const shuffledKanji = shuffleArray(kanjis);
     const shuffledMeanings = shuffleArray(meanings);
 
@@ -227,6 +233,8 @@ function checkMatch() {
     const kanji = isKanji ? btn1.dataset.value : btn2.dataset.value;
     const meaning = isKanji ? btn2.dataset.value : btn1.dataset.value;
 
+    //Compueba que la pareja hecha por los botones clicados es igual a alguna pareja hecha
+    //del grupo de 5 guardado
     const pairExists = currentSet.some(pair => pair[0] === kanji && pair[1] === meaning);
 
     if (pairExists) {

@@ -283,6 +283,8 @@ function begin(){
 
     setRecords()
 
+    console.log("Se ha añadido la puntuación de miki!");
+
 }
 
 begin();

@@ -474,11 +474,10 @@ function checkMatch() {
 
 // Restablecer estilo de botones
 function resetButtonStyles() {
-    document.querySelectorAll('#kanji-container button').forEach(button => {
+    document.querySelectorAll('button').forEach(button => {
         button.style.backgroundColor = '#fff';
     });
 }
-
 
 // Mezclar un arreglo
 function shuffleArray(array) {

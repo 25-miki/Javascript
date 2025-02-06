@@ -474,7 +474,7 @@ function checkMatch() {
 
 // Restablecer estilo de botones
 function resetButtonStyles() {
-    document.querySelectorAll('#game-container button').forEach(button => {
+    document.querySelectorAll('#kanji-container button').forEach(button => {
         button.style.backgroundColor = '#fff';
     });
 }

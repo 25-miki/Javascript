@@ -271,7 +271,7 @@ kunyomi.addEventListener("click", () => {
 
 
 // Recuperar las mejores puntuaciones
-let bestScores = JSON.parse(localStorage.getItem("bestScores"));
+let bestScores = JSON.parse(localStorage.getItem("bestScores")) || [];
 
 function begin(){
     const mikiScore = { name: "Miki", score: 1000 };

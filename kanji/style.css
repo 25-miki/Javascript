@@ -10,7 +10,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    height: 100%;
     margin: 0;
     background-image: url("8559794.jpg");
     background-attachment: fixed;
@@ -28,7 +28,7 @@ body {
   }
   #game-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 200px 200px;
     gap: 10px;
     margin: 20px 0;
   }
@@ -38,10 +38,15 @@ body {
     flex-direction: column;
   }
 
+  .kanji button {
+    font-size: 40px;
+    padding: 5px;
+  }
+
 
   button {
-    height: 65px;
-    padding: 20px;
+    height: 95px;
+    padding: 10px;
     font-size: 20px;
     cursor: pointer;
     border: 1px solid #8bcafb;
@@ -55,4 +60,34 @@ body {
   }
   #results {
     margin-top: 20px;
+  }
+
+  .idiomas {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .idiomas button {
+    height: auto;
+    padding: 15px;
+    font-size: 20px;
+    border: 4px solid #294cff;
+    background-color: #4a69ff;
+    color: white;
+    transition: background-color 0.2s;
+  }
+
+  .idiomas button:hover {
+    background-color: #1b41ff;
+
+  }
+
+  /*escritorio*/
+  @media (min-width: 700px){
+    #game-container {
+      display: grid;
+      grid-template-columns: 300px 300px;
+      gap: 10px;
+      margin: 20px 0;
+    }
   }

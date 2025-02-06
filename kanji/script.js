@@ -314,6 +314,7 @@ function startGame() {
     kanjiPairs.sort(() => Math.random() - 0.5); // Mezclar los pares
     startTime = Date.now();
     loadNextSet();
+    begin();
     console.log("EL juego ha empezado");
 }
 
@@ -473,10 +474,11 @@ function checkMatch() {
 
 // Restablecer estilo de botones
 function resetButtonStyles() {
-    document.querySelectorAll('button').forEach(button => {
+    document.querySelectorAll('#game-container button').forEach(button => {
         button.style.backgroundColor = '#fff';
     });
 }
+
 
 // Mezclar un arreglo
 function shuffleArray(array) {

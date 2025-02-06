@@ -273,19 +273,21 @@ kunyomi.addEventListener("click", () => {
 // Recuperar las mejores puntuaciones
 let bestScores = JSON.parse(localStorage.getItem("bestScores")) || [];
 
-function begin(){
+function begin() {
     const mikiScore = { name: "Miki", score: 1000 };
+
+    // Asegurarse de que bestScores está inicializado
     bestScores.push(mikiScore);
 
     // Ordenar y guardar
     bestScores = bestScores.sort((a, b) => b.score - a.score);
     localStorage.setItem("bestScores", JSON.stringify(bestScores));
 
-    setRecords()
+    setRecords();
 
     console.log("Se ha añadido la puntuación de miki!");
-
 }
+
 
 begin();
 

@@ -314,6 +314,7 @@ function startGame() {
     kanjiPairs.sort(() => Math.random() - 0.5); // Mezclar los pares
     startTime = Date.now();
     loadNextSet();
+    console.log("EL juego ha empezado");
 }
 
 // Terminar el juego

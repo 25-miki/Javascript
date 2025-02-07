@@ -349,12 +349,15 @@ function endGame() {
     alert(`Game Over!\nTime: ${timeTaken} seconds\nErrors: ${errorCount}\nScore: ${finalScore}`);
 }
 
+var topTen = bestScores.slice(0, 10);
 // Actualizar los mejores puntajes en la tabla
 function setRecords() {
     const recordsTableBody = document.querySelector("#records tbody");
     recordsTableBody.innerHTML = "";
+    var topTen = bestScores.slice(0, 10);
 
-    bestScores.slice(0, 10).forEach((entry, index) => {
+
+    topTen.forEach((entry, index) => {
         const row = document.createElement("tr");
     
         const rankCell = document.createElement("td");

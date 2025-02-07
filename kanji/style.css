@@ -12,16 +12,16 @@ body {
     justify-content: center;
     height: 100%;
     margin: 0;
-    background-image: url("8559794.jpg");
+    background-image: url("kanji-fondo-mini.png");
     background-attachment: fixed;
     background-size: cover;  /* Ajusta la imagen para que cubra toda la pantalla */
     background-position: center;
     color: white;
     text-shadow: 
-        3px 3px 0px rgb(226, 73, 73),   /* Borde superior izquierdo */
-        -3px -3px 0px rgb(226, 73, 73), /* Borde inferior derecho */
-        3px -3px 0px rgb(226, 73, 73),  /* Borde superior derecho */
-        -3px 3px 0px rgb(226, 73, 73);  /* Borde inferior izquierdo */
+        3px 3px 0px rgb(253, 42, 179),   /* Borde superior izquierdo */
+        -3px -3px 0px rgb(253, 42, 179), /* Borde inferior derecho */
+        3px -3px 0px rgb(253, 42, 179),  /* Borde superior derecho */
+        -3px 3px 0px rgb(253, 42, 179) /* Borde inferior izquierdo */
 }
   h1, h2 {
     margin: 10px;
@@ -93,6 +93,9 @@ body {
 
   /*escritorio*/
   @media (min-width: 700px){
+    body {
+      background-image: url("kanji-fondo.png");
+    }
     #game-container {
       display: grid;
       grid-template-columns: 1fr 1fr;

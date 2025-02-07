@@ -415,7 +415,7 @@ function renderButtons() {
 
     shuffledKanji.forEach(kanji => {
         const button = document.createElement('button');
-        button.className = "botones";
+        button.className = "botones game-button";
         button.textContent = kanji;
         button.dataset.value = kanji;
         button.dataset.type = 'kanji';
@@ -425,6 +425,7 @@ function renderButtons() {
 
     shuffledMeanings.forEach(meaning => {
         const button = document.createElement('button');
+        button.className = "botones game-button";
         button.textContent = meaning;
         button.dataset.value = meaning;
         button.dataset.type = 'meaning';
@@ -475,7 +476,7 @@ function checkMatch() {
 
 // Restablecer estilo de botones
 function resetButtonStyles() {
-    document.querySelectorAll('.botones').forEach(boton => {
+    document.querySelectorAll('.game-button').forEach(boton => {
         boton.style.backgroundColor = '#fff';
     });
 }

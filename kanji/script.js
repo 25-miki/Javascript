@@ -96,8 +96,8 @@ function startGame() {
 // Terminar el juego
 function endGame() {
     const endTime = Date.now();
-    const timeTaken = Math.floor((endTime - startTime) / 1000);
-    const basePoints = 1000;
+    const timeTaken = Math.floor((endTime - startTime) / 10000);
+    const basePoints = 10000;
     const timePenalty = timeTaken * 5;
     const errorPenalty = errorCount * 20;
     const finalScore = Math.max(0, basePoints - timePenalty - errorPenalty);

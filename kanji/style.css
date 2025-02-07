@@ -95,12 +95,14 @@ body {
   @media (min-width: 700px){
     #game-container {
       display: grid;
-      grid-template-columns: 40% 40%;
+      grid-template-columns: 1fr 1fr;
+      max-width: none;
+      min-width: 600px;
       gap: 10px;
       margin: 20px 0;
     }
 
     .word button {
-      font-size: 30px;
+      font-size: 20px;
     }
   }

@@ -415,6 +415,7 @@ function renderButtons() {
 
     shuffledKanji.forEach(kanji => {
         const button = document.createElement('button');
+        button.className = "botones";
         button.textContent = kanji;
         button.dataset.value = kanji;
         button.dataset.type = 'kanji';
@@ -474,7 +475,7 @@ function checkMatch() {
 
 // Restablecer estilo de botones
 function resetButtonStyles() {
-    document.querySelectorAll('button').forEach(button => {
+    document.querySelectorAll('.botones').forEach(button => {
         button.style.backgroundColor = '#fff';
     });
 }

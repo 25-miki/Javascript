@@ -475,7 +475,7 @@ function checkMatch() {
 
 // Restablecer estilo de botones
 function resetButtonStyles() {
-    document.querySelector('.botones').forEach(button => {
+    document.querySelectorAll('.botones').forEach(button => {
         button.style.backgroundColor = '#fff';
     });
 }

@@ -17,7 +17,7 @@ body {
   background-attachment: fixed;
   background-size: cover;  /* Ajusta la imagen para que cubra toda la pantalla */
   background-position: center;
-  background-color: rgb(253, 42, 179);
+  background-color: rgb(254, 135, 213);
   color: white;
   text-shadow: 
       3px 3px 0px rgb(253, 42, 179),   /* Borde superior izquierdo */
@@ -27,7 +27,7 @@ body {
 }
 
 h2 {
-  margin-top: 5px;
+  margin-top: -15px;
 }
   
   #game-container {

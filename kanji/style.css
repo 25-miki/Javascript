@@ -5,27 +5,32 @@
 
 
 body {
-    font-family: "Japanese_2020", sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    margin: 0;
-    background-image: url("kanji-fondo-mini.png");
-    background-attachment: fixed;
-    background-size: cover;  /* Ajusta la imagen para que cubra toda la pantalla */
-    background-position: center;
-    color: white;
-    text-shadow: 
-        3px 3px 0px rgb(253, 42, 179),   /* Borde superior izquierdo */
-        -3px -3px 0px rgb(253, 42, 179), /* Borde inferior derecho */
-        3px -3px 0px rgb(253, 42, 179),  /* Borde superior derecho */
-        -3px 3px 0px rgb(253, 42, 179) /* Borde inferior izquierdo */
+  font-family: "Japanese_2020", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0;
+  background-image: url("kanji-fondo-mini.png");
+  background-attachment: fixed;
+  background-size: cover;  /* Ajusta la imagen para que cubra toda la pantalla */
+  background-position: center;
+  color: white;
+  text-shadow: 
+      3px 3px 0px rgb(253, 42, 179),   /* Borde superior izquierdo */
+      -3px -3px 0px rgb(253, 42, 179), /* Borde inferior derecho */
+      3px -3px 0px rgb(253, 42, 179),  /* Borde superior derecho */
+      -3px 3px 0px rgb(253, 42, 179) /* Borde inferior izquierdo */
 }
-  h1, h2 {
-    margin: 10px;
-  }
+
+h1 {
+  margin-top: 15px;
+}
+h2 {
+  margin-top: 5px;
+}
+  
   #game-container {
     display: grid;
     grid-template-columns: 50% 50%;
@@ -43,6 +48,7 @@ body {
   .kanji button {
     font-size: 40px;
     padding: 5px;
+    color: black;
   }
 
   .word button {
@@ -50,6 +56,7 @@ body {
     font-weight: 600;
     font-style: normal;
     font-size: 15px;
+    color: black;
   }
 
 
@@ -107,5 +114,9 @@ body {
 
     .word button {
       font-size: 20px;
+    }
+
+    h1, h2 {
+      margin: 10px;
     }
   }

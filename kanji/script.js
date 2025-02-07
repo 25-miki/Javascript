@@ -1,255 +1,26 @@
 // Definir los pares de kanji y significados
-const kanji_meanings = [
-    ["日", "día, sol, Japón, contador de días"],
-    ["一", "uno"],
-    ["国", "país"],
-    ["人", "persona"],
-    ["年", "año, contador de años"],
-    ["大", "grande"],
-    ["十", "diez"],
-    ["二", "dos"],
-    ["本", "libro, presente, verdadero, contador de objetos cilíndricos"],
-    ["中", "dentro, medio, centro"],
-    ["長", "largo, líder, superior, mayor"],
-    ["出", "salida, dejar, salir"],
-    ["三", "tres"],
-    ["時", "hora, tiempo"],
-    ["行", "ir, viaje, llevar a cabo, línea, fila"],
-    ["見", "ver, esperanza, oportunidad, idea, mirar, visible"],
-    ["月", "mes, luna"],
-    ["分", "parte, minuto, entender"],
-    ["後", "detrás, atrás, más tarde"],
-    ["前", "delante, antes"],
-    ["生", "vida, genuino, nacimiento"],
-    ["五", "cinco"],
-    ["間", "intervalo, espacio"],
-    ["上", "arriba, sobre"],
-    ["東", "este"],
-    ["四", "cuatro"],
-    ["今", "ahora, presente"],
-    ["金", "oro"],
-    ["九", "nueve"],
-    ["入", "entrar, insertar"],
-    ["学", "estudio, aprendizaje, ciencia"],
-    ["高", "alto, caro, elevado"],
-    ["円", "círculo, yen, redondo"],
-    ["子", "niño"],
-    ["外", "fuera, exterior"],
-    ["八", "ocho"],
-    ["六", "seis"],
-    ["下", "debajo, bajar"],
-    ["来", "venir, siguiente"],
-    ["気", "espíritu, mente, aire, atmósfera, estado de ánimo"],
-    ["小", "pequeño"],
-    ["七", "siete"],
-    ["山", "montaña"],
-    ["話", "hablar, conversación"],
-    ["女", "mujer, femenina"],
-    ["北", "norte"],
-    ["午", "mediodía, signo del caballo"],
-    ["百", "cien"],
-    ["書", "escribir"],
-    ["先", "delante, anterior, futuro, precedencia"],
-    ["名", "nombre, famoso, reputación"],
-    ["川", "río"],
-    ["千", "mil"],
-    ["水", "agua"],
-    ["半", "medio, mitad"],
-    ["男", "hombre, masculino"],
-    ["西", "oeste"],
-    ["電", "electricidad, energía eléctrica"],
-    ["校", "escuela, examen"],
-    ["語", "palabra, habla, lenguaje"],
-    ["土", "tierra, suelo"],
-    ["木", "árbol, madera"],
-    ["聞", "oír, escuchar, preguntar"],
-    ["食", "comer, comida"],
-    ["車", "coche, rueda"],
-    ["何", "qué"],
-    ["南", "sur"],
-    ["万", "diez mil"],
-    ["毎", "cada"],
-    ["白", "blanco"],
-    ["天", "cielo, cielo celestial"],
-    ["母", "madre"],
-    ["火", "fuego"],
-    ["右", "derecha (dirección)"],
-    ["読", "leer"],
-    ["友", "amigo"],
-    ["左", "izquierda"],
-    ["休", "descansar, día libre, retirarse, dormir"],
-    ["父", "padre"],
-    ["雨", "lluvia"]
-]
 
-const kanji_kunyomi = [
-    ["日", "ひ, -び, -か"],
-    ["一", "ひと(つ)"],
-    ["国", "くに"],
-    ["人", "ひと"],
-    ["年", "とし"],
-    ["大", "おお(きい)"],
-    ["十", "とお, と"],
-    ["二", "ふた(つ)"],
-    ["本", "もと"],
-    ["中", "なか, うち, あた(る)"],
-    ["長", "なが(い), おさ"],
-    ["出", "で(る), だ(す), い(でる)"],
-    ["三", "み(つ)"],
-    ["時", "とき, -どき"],
-    ["行", "い(く), ゆ(く), おこな(う)"],
-    ["見", "み(る), み(せる)"],
-    ["月", "つき"],
-    ["分", "わ(ける)"],
-    ["後", "のち, うし(ろ), あと"],
-    ["前", "まえ"],
-    ["生", "い(きる), う(む), お(う), は(える), なま"],
-    ["五", "いつ(つ)"],
-    ["間", "あいだ, ま, あい"],
-    ["上", "うえ, うわ-, かみ, あ(げる), のぼ(る), たてまつ(る)"],
-    ["東", "ひがし"],
-    ["四", "よ(つ), よん"],
-    ["今", "いま"],
-    ["金", "かね, かな-, -がね"],
-    ["九", "ここの(つ)"],
-    ["入", "い(る), はい(る)"],
-    ["学", "まな(ぶ)"],
-    ["高", "たか(い)"],
-    ["円", "まる(い)"],
-    ["子", "こ, ね"],
-    ["外", "そと, ほか, はず(す), と-"],
-    ["八", "や(つ), よう"],
-    ["六", "む(つ), むい"],
-    ["下", "した, しも, もと, さ(げる), くだ(る), お(ろす)"],
-    ["来", "く.る, きた.る, き, こ"],
-    ["気", "いき"],
-    ["小", "ちい(さい), こ-, お-, さ-"],
-    ["七", "なな(つ), なの"],
-    ["山", "やま"],
-    ["話", "はな(す), はなし"],
-    ["女", "おんな, め"],
-    ["北", "きた"],
-    ["午", "うま"],
-    ["百", "もも"],
-    ["書", "か(く)"],
-    ["先", "さき, ま(ず)"],
-    ["名", "な"],
-    ["川", "かわ"],
-    ["千", "ち"],
-    ["水", "みず"],
-    ["半", "なか(ば)"],
-    ["男", "おとこ, お"],
-    ["西", "にし"],
-    ["電", "なし"],
-    ["校", "なし"],
-    ["語", "かた(る)"],
-    ["土", "つち"],
-    ["木", "き, こ-"],
-    ["聞", "き(く)"],
-    ["食", "く(う), た(べる), は(む)"],
-    ["車", "くるま"],
-    ["何", "なに, なん"],
-    ["南", "みなみ"],
-    ["万", "なし"],
-    ["毎", "ごと(に)"],
-    ["白", "しろ(い)"],
-    ["天", "あまつ"],
-    ["母", "はは, かあ"],
-    ["火", "ひ, -び, ほ-"],
-    ["右", "みぎ"],
-    ["読", "よ(む)"],
-    ["友", "とも"],
-    ["左", "ひだり"],
-    ["休", "やす(む)"],
-    ["父", "ちち, とう"],
-    ["雨", "あめ, あま"]
-]
-
-const kanji_onyomi = [
-    ["日", "nichi, jitsu"],
-    ["一", "ichi"],
-    ["国", "koku"],
-    ["人", "jin, nin"],
-    ["年", "nen"],
-    ["大", "dai, tai"],
-    ["十", "juu"],
-    ["二", "ni, ji"],
-    ["本", "hon"],
-    ["中", "chuu"],
-    ["長", "chou"],
-    ["出", "shutsu, sui"],
-    ["三", "san"],
-    ["時", "ji"],
-    ["行", "kou, gyou, an"],
-    ["見", "ken"],
-    ["月", "getsu, gatsu"],
-    ["分", "bun, fun, bu"],
-    ["後", "go, kou"],
-    ["前", "zen"],
-    ["生", "sei, shou"],
-    ["五", "go"],
-    ["間", "kan, ken"],
-    ["上", "jou, shou, shan"],
-    ["東", "tou"],
-    ["四", "shi"],
-    ["今", "kon, kin"],
-    ["金", "kin, kon, gon"],
-    ["九", "kyuu, ku"],
-    ["入", "nyuu"],
-    ["学", "gaku"],
-    ["高", "kou"],
-    ["円", "en"],
-    ["子", "shi, su, tsu"],
-    ["外", "gai, ge"],
-    ["八", "hachi"],
-    ["六", "roku"],
-    ["下", "ka, ge"],
-    ["来", "rai, tai"],
-    ["気", "ki, ke"],
-    ["小", "shou"],
-    ["七", "shichi"],
-    ["山", "san, sen"],
-    ["話", "wa"],
-    ["女", "jo"],
-    ["北", "hoku"],
-    ["午", "go"],
-    ["百", "hyaku, byaku"],
-    ["書", "sho"],
-    ["先", "sen"],
-    ["名", "mei, myou"],
-    ["川", "sen"],
-    ["千", "sen"],
-    ["水", "sui"],
-    ["半", "han"],
-    ["男", "dan, nan"],
-    ["西", "sei, sai"],
-    ["電", "den"],
-    ["校", "kou"],
-    ["語", "go"],
-    ["土", "do, to"],
-    ["木", "boku, moku"],
-    ["聞", "bun, mon"],
-    ["食", "shoku, jiki"],
-    ["車", "sha"],
-    ["何", "ka"],
-    ["南", "nan, na"],
-    ["万", "man, ban"],
-    ["毎", "mai"],
-    ["白", "haku, byaku"],
-    ["天", "ten"],
-    ["母", "bo"],
-    ["火", "ka"],
-    ["右", "u, yuu"],
-    ["読", "doku, toku, tou"],
-    ["友", "yuu"],
-    ["左", "sa, sha"],
-    ["休", "kyuu"],
-    ["父", "fu"],
-    ["雨", "u"]
-]
-
-
+var kanji_meanings = [["国", "País"]];
+var kanji_kunyomi = [];
+var kanji_onyomi = [];
 var kanjiPairs = kanji_meanings;
+
+
+fetch('N5.json')
+    .then(response => response.json())
+    .then(data => {
+        kanji_meanings = data.meanings;
+        kanji_kunyomi = data.kunyomi;
+        kanji_onyomi = data.onyomi;
+
+        kanjiPairs = kanji_meanings; 
+        startGame();
+})
+
+.catch(error => console.error('Error al cargar el archivo JSON:', error));
+
+
+
 
 const kanji_button = document.getElementById("kanji");
 kanji_button.addEventListener("click", () => {
@@ -273,6 +44,7 @@ kunyomi.addEventListener("click", () => {
 // Recuperar las mejores puntuaciones
 let bestScores = JSON.parse(localStorage.getItem("bestScores") || "[]");
 
+/*
 function begin() {
     const mikiScore = { name: "Miki", score: 1000 };
 
@@ -288,8 +60,11 @@ function begin() {
     console.log("Se ha añadido la puntuación de miki!");
 }
 
-
 begin();
+*/
+
+
+
 
 
 // Variables de juego
@@ -307,6 +82,7 @@ const timeDisplay = document.getElementById('time-taken');
 
 // Función para iniciar el juego
 function startGame() {
+    setRecords();
     matchedPairs = 0;
     errorCount = 0;
     errorDisplay.textContent = errorCount;
@@ -314,7 +90,6 @@ function startGame() {
     kanjiPairs.sort(() => Math.random() - 0.5); // Mezclar los pares
     startTime = Date.now();
     loadNextSet();
-    begin();
     console.log("EL juego ha empezado");
 }
 

@@ -28,9 +28,11 @@ body {
   }
   #game-container {
     display: grid;
-    grid-template-columns: 200px 200px;
+    grid-template-columns: 50% 50%;
     gap: 10px;
     margin: 20px 0;
+    max-width: 300px;
+    min-width: 200px;
   }
 
   #kanji-container, #word-container {
@@ -41,6 +43,13 @@ body {
   .kanji button {
     font-size: 40px;
     padding: 5px;
+  }
+
+  .word button {
+    font-family: "Poppins", serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 15px;
   }
 
 
@@ -86,8 +95,12 @@ body {
   @media (min-width: 700px){
     #game-container {
       display: grid;
-      grid-template-columns: 300px 300px;
+      grid-template-columns: 40% 40%;
       gap: 10px;
       margin: 20px 0;
+    }
+
+    .word button {
+      font-size: 30px;
     }
   }

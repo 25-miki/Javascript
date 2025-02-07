@@ -354,7 +354,8 @@ function setRecords() {
     const recordsTableBody = document.querySelector("#records tbody");
     recordsTableBody.innerHTML = "";
 
-    bestScores.forEach((entry, index) => {
+    bestScores.slice(0, 9).forEach((entry, index) => {
+        
         const row = document.createElement("tr");
 
         const rankCell = document.createElement("td");

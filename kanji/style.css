@@ -31,8 +31,8 @@ body {
     grid-template-columns: 50% 50%;
     gap: 10px;
     margin: 20px 0;
-    max-width: 600px;
-    min-width: 400px;
+    max-width: 700px;
+    min-width: 500px;
   }
 
   #kanji-container, #word-container {

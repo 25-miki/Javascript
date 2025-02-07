@@ -5,6 +5,7 @@
 
 
 body {
+  padding: 10px 0px 40px 0px;  
   font-family: "Japanese_2020", sans-serif;
   display: flex;
   flex-direction: column;
@@ -16,6 +17,7 @@ body {
   background-attachment: fixed;
   background-size: cover;  /* Ajusta la imagen para que cubra toda la pantalla */
   background-position: center;
+  background-color: rgb(253, 42, 179);
   color: white;
   text-shadow: 
       3px 3px 0px rgb(253, 42, 179),   /* Borde superior izquierdo */
@@ -24,9 +26,6 @@ body {
       -3px 3px 0px rgb(253, 42, 179) /* Borde inferior izquierdo */
 }
 
-h1 {
-  margin-top: 15px;
-}
 h2 {
   margin-top: 5px;
 }

@@ -1,0 +1,37 @@
+body {
+    font-family: "Lilita One", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.container {
+    height: 90vh;
+    margin-top: 5vh;
+    width: 40vw;
+    margin-left: 30vw;
+}
+
+#azul {
+    transition: background-color 0.3s;
+}
+
+#amarillo {
+    animation: none;
+    transition: background-color 0.3s;
+}
+
+#rojo {
+    animation: none;
+    transition: background-color 0.3s;
+}
+
+#verde {
+    animation: none;
+    transition: background-color 0.3s;
+}
+
+#start {
+    animation: none;
+    transition: background-color 0.3s;
+}
+

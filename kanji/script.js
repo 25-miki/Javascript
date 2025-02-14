@@ -98,8 +98,8 @@ function endGame() {
     const endTime = Date.now();
     const timeTaken = Math.floor((endTime - startTime) / 10000);
     const basePoints = 10000;
-    const timePenalty = timeTaken * 5;
-    const errorPenalty = errorCount * 20;
+    const timePenalty = timeTaken * 50;
+    const errorPenalty = errorCount * 50;
     const finalScore = Math.max(0, basePoints - timePenalty - errorPenalty);
 
     // Verificar si el puntaje merece estar en el top 10
@@ -125,6 +125,7 @@ function endGame() {
 }
 
 var topTen = bestScores.slice(0, 10);
+
 // Actualizar los mejores puntajes en la tabla
 function setRecords() {
     const recordsTableBody = document.querySelector("#records tbody");

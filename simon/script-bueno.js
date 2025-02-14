@@ -1,3 +1,23 @@
+
+let bestScores = JSON.parse(localStorage.getItem("simonScores") || "[]");
+
+
+// Check if bestScores is empty
+if (bestScores.length === 0) {
+    for (let i = 0; i < 10; i++) {
+        // Push an object with name and score
+        bestScores.push({ name: "AAA", score: 10 });
+    }
+    // Call setRecords after initializing
+    setRecords();
+    localStorage.setItem('simonScores', JSON.stringify(bestScores));
+
+}
+
+setRecords();
+
+
+
 /*id de botones*/
 
 const rojo = document.getElementById("rojo");
@@ -93,6 +113,7 @@ function manejarRespuesta(color, elemento, nuevoColor) {
     if (!verificarRespuesta()) {
         console.log("¡Error! La secuencia no coincide.");
         partidaActiva = false;
+        ranking(rondas);
         return;
     }
 
@@ -120,4 +141,52 @@ function aclararColor(element, nuevoColor) {
     setTimeout(() => {
         element.style.fill = colorOriginal;
     }, 500); // El color vuelve a su estado original después de 500ms
+}
+
+function ranking(finalScore){
+    const lowestScore = bestScores.length === 10 ? bestScores[9].score : 0;
+    
+    if (finalScore > lowestScore || bestScores.length < 10) {
+        const playerName = prompt("Enter your name:") || "AAA";
+        const newScore = { name: playerName, score: finalScore };
+
+        // Insertar y reordenar
+        bestScores.push(newScore);
+        bestScores = bestScores
+            .sort((a, b) => b.score - a.score)
+            .slice(0, 10);
+
+        // Guardar en localStorage
+        localStorage.setItem('simonScores', JSON.stringify(bestScores));
+    }
+
+    setRecords();
+}
+
+
+function setRecords() {
+    const recordsTableBody = document.querySelector("#records tbody");
+    recordsTableBody.innerHTML = "";
+    var topTen = bestScores.slice(0, 10);
+
+
+    topTen.forEach((entry, index) => {
+        const row = document.createElement("tr");
+    
+        const rankCell = document.createElement("td");
+        rankCell.textContent = index + 1;
+    
+        const nameCell = document.createElement("td");
+        nameCell.textContent = entry.name;
+    
+        const scoreCell = document.createElement("td");
+        scoreCell.textContent = entry.score;
+    
+        row.appendChild(rankCell);
+        row.appendChild(nameCell);
+        row.appendChild(scoreCell);
+    
+        recordsTableBody.appendChild(row);
+    });
+    
 }

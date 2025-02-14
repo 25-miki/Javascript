@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
 </head>
-<body>
+<body style="display: grid; grid-template-columns: 70vw 30vw;">
     <div class="container">
         <svg width="100%" height="100%" viewBox="0 0 2048 2049" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
             <g>
@@ -43,8 +43,8 @@
             <g transform="matrix(1.82596,0,0,1.92627,-883.6,-1017.23)">
             </g>
             <g transform="matrix(1,0,0,1,-50.492,-34.1457)">
-                <ellipse cx="1087.38" cy="1090.96" rx="265" ry="265" fill="rgb(40,40,40)" />
-                <ellipse cx="1087.38" cy="1070.96" rx="265" ry="265" fill="rgb(20,20,20)" />
+                <ellipse cx="1087.38" cy="1060.96" rx="265" ry="265" fill="rgb(30,30,30)" />
+                <ellipse cx="1087.38" cy="1030.96" rx="265" ry="265" fill="rgb(20,20,20)" />
                 <g transform="matrix(1,0,0,1,-50.492,-34.1457)">
                     <ellipse cx="1140.38" cy="1010.96" rx="145.685" ry="115.786" fill="darkGrey"/>             
                     <ellipse  cx="1140.38" cy="1000.96" rx="145.685" ry="115.786" fill="grey" /> 
@@ -63,6 +63,19 @@
             </g>
         </svg>
     </div>
+    <table  style="font-size: 25px; margin: 50px; text-align: center;" id="records">
+        <thead>
+          <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody >
+          <!-- Aquí se insertarán las filas dinámicamente -->
+           <tr></tr>
+        </tbody>
+      </table>
 
     <script src="script-bueno.js"></script>
     

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chistes Aleatorios</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+        #chiste {
+            font-size: 24px;
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid black;
+            display: inline-block;
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chistes Aleatorios</h1>
+    <div id="chiste">Cargando chiste...</div>
+    
+    <script>
+        const API_URL = "http://chistes.alpati.net";
+        let jokeHistory = [];
+
+        async function obtenerToken() {
+            let token = localStorage.getItem("joke_token");
+            if (!token) {
+                try {
+                    const response = await fetch(`${API_URL}/create_joke_token`, { method: "POST" });
+                    const data = await response.json();
+                    if (data.joke_token) {
+                        token = data.joke_token;
+                        localStorage.setItem("joke_token", token);
+                    } else {
+                        console.error("Error obteniendo el token:", data);
+                    }
+                } catch (error) {
+                    console.error("Error en la solicitud del token:", error);
+                }
+            }
+            return token;
+        }
+
+        async function obtenerChiste(token) {
+            try {
+                const response = await fetch(`${API_URL}/get_joke/${token}`);
+                const data = await response.json();
+                if (data.id && !jokeHistory.includes(data.id)) {
+                    jokeHistory.push(data.id);
+                    if (jokeHistory.length > 10) jokeHistory.shift();
+                    document.getElementById("chiste").textContent = data.joke;
+                } else {
+                    obtenerChiste(token); // Solicitar otro chiste si se repite
+                }
+            } catch (error) {
+                console.error("Error obteniendo el chiste:", error);
+            }
+        }
+
+        async function iniciarChistes() {
+            const token = await obtenerToken();
+            if (token) {
+                obtenerChiste(token);
+                setInterval(() => obtenerChiste(token), 10000);
+            }
+        }
+
+        iniciarChistes();
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+/* Estilos globales */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+  }
+  
+  /* Contenedor global de Pokémon */
+  .pokemon-container-global {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajuste automático de columnas */
+    gap: 20px; /* Espacio entre los elementos */
+    width: 100%;
+    max-width: 1200px; /* Máxima anchura del contenedor */
+    margin-bottom: 20px;
+  }
+  
+  /* Contenedor individual de cada Pokémon */
+  .pokemon-container {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Imagen del Pokémon */
+  .pokemon-container img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin: 10px 0;
+  }
+  
+  /* Títulos de los Pokémon */
+  .pokemon-container h2, .pokemon-container h3 {
+    margin: 5px 0;
+  }
+  
+  /* Estilo del botón */
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  

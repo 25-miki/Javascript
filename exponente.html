@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Potencia</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 50px;
+        }
+        input, button {
+            font-size: 18px;
+            margin: 5px;
+            padding: 10px;
+        }
+        #resultado {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de Potencia</h1>
+    <label for="base">Base:</label>
+    <input type="number" id="base" step="any">
+    <br>
+    <label for="exponente">Exponente:</label>
+    <input type="number" id="exponente">
+    <br>
+    <button onclick="calcularPotencia()">Calcular</button>
+    <p id="resultado"></p>
+    
+    <script>
+        class Mates {
+            static potencia(base, exponente) {
+                if (!Number.isInteger(exponente)) {
+                    return "Error: El exponente debe ser un número entero.";
+                }
+                if (exponente === 0) return 1;
+                if (exponente < 0) return 1 / Mates.potencia(base, -exponente);
+                return base * Mates.potencia(base, exponente - 1);
+            }
+        }
+
+        function calcularPotencia() {
+            const base = parseFloat(document.getElementById("base").value);
+            const exponente = parseInt(document.getElementById("exponente").value); /* parseInt(valor, base) 
+            te devuelve un número entero pero se puede elegir la base y puede pasar numero a binario y a hexadecimal
+            ej:console.log(parseInt("1010", 2)); // 10 (binario a decimal)
+                console.log(parseInt("A", 16)); // 10 (hexadecimal a decimal) */
+
+
+            const resultado = Mates.potencia(base, exponente);
+            document.getElementById("resultado").textContent = `Resultado: ${resultado}`;
+        }
+    </script>
+</body>
+</html>
